@@ -1,0 +1,42 @@
+.page-header
+  <h1>Преподаватели</h1>
+
+%table.table.table-condensed
+  %thead
+    %tr
+      %th Фамилия
+      %th Имя
+      %th Отчество
+      %th Степень
+      %th Звание
+      %th Должность
+
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= teacher.last_name
+        %td= teacher.first_name
+        %td= teacher.second_name
+        %td= teacher.degree
+        %td= teacher.rank
+        %td= teacher.position
+        %td
+          = link_to teacher,"data-toggle" => "tooltip", :title => "Развернутая информация преподавателя", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_teacher_path(teacher), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
+
+%br
+
+= link_to new_teacher_path, "data-toggle" => "tooltip", :title => "Добавить преподавателя", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Добавить преподавателя

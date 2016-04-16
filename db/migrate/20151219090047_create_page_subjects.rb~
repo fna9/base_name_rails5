@@ -1,0 +1,10 @@
+class CreatePageSubjects < ActiveRecord::Migration
+  def change
+    create_table :page_subjects do |t|
+      t.references :page, index: true, foreign_key: true
+      t.references :subject, index: true, foreign_key: true
+
+      t.timestamps null: false
+    end
+  end
+end

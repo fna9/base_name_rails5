@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Afile:
+  = @afile_messager.afile
+%p
+  %b Messager:
+  = @afile_messager.messager
+
+= link_to 'Edit', edit_afile_messager_path(@afile_messager)
+\|
+= link_to 'Back', afile_messagers_path

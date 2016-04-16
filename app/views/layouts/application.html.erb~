@@ -1,0 +1,40 @@
+!!!
+%html{lang: 'ru'}
+  %head
+    %title=t('app.name')
+    %meta{charset: 'utf-8'}
+    %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0"}
+    %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    =favicon_link_tag 'favicon.ico'
+    =favicon_link_tag 'favicon-32x32.png', sizes: '32x32'
+    =favicon_link_tag 'apple-icon.png', rel: 'apple-touch-icon'
+
+<body class=" <%= controller.controller_name %>">
+	<div id="banner">
+		<%= image_tag("logo.png") %>
+		<%= @page_title || "Page University" %>
+	</div>
+	<div id="columns">
+		<div id="side">
+			<ul>
+				<li><a href="http://localhost:3000">Главная страница</a></li>
+				<li><a href="http://localhost:3000/syllabuses">Учебный план</a></li>
+				<li><a href="http://localhost:3000/subjects">Предметы</a></li>
+				<li><a href="http://localhost:3000/students">Студенты</a></li>
+				<li><a href="http://localhost:3000/teachers">Преподаватели</a></li>
+				<li><a href="http://localhost:3000/messages">Сообщения</a></li>
+				<li><a href="http://localhost:3000">Обновление</a></li>
+				<li><a href="http://localhost:3000/ratings">Рейтинг</a></li>
+				<li><a href="http://localhost:3000/groups">Группы</a></li>
+				<li><a href="http://localhost:3000/users">Users</a></li>
+			</ul>
+		</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+
+</body>
+</html>

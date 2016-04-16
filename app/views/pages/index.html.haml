@@ -1,0 +1,41 @@
+%h1 Список страниц
+
+%table.table
+  %thead
+    %tr
+      %th Видимость
+      %th Заголовок
+      %th Содержание
+      %th Псевдоним
+
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= page.visibility
+        %td= page.header
+        %td= page.contents
+        %td= page.alias
+        %td
+          = link_to page,"data-toggle" => "tooltip", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_page_path(page), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to page, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
+
+
+
+%br
+
+
+= link_to new_page_path, "data-toggle" => "tooltip", :title => "Добавление новой страницы", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Новая Страница
+

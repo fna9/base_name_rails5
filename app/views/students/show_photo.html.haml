@@ -1,0 +1,6 @@
+-if @student.avatar?
+  = image_tag get_photo_student_path(@student, type: :original), alt: @student.last_name
+-else
+  .li.text-danger
+    Изображение не загружено!
+

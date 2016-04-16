@@ -1,0 +1,7 @@
+%h1 Редактирование университета
+
+= render 'form'
+
+= link_to 'Посмотреть', @university
+\|
+= link_to 'Назад', universities_path

@@ -1,0 +1,43 @@
+.br
+.page-header
+  .h1=@student.last_name + ' ' + @student.first_name + ' ' + @student.second_name
+
+
+%p
+  -if @student.avatar?
+    =link_to show_photo_student_path(@student, type: :original), target: :_new do
+      = image_tag get_photo_student_path(@student, type: :medium), alt: @student.last_name
+  -else
+    .li.text-danger
+      Изображение не загружено!
+
+
+%p
+  %b Дата рождения:
+  = l(@student.b_date.to_date)
+
+%p
+  %b Номер паспорта:
+  = @student.passport_id
+
+%p
+  %b Серия паспорта:
+  = @student.passport_series
+
+
+%p
+  %b Сообщества:
+  %ul
+    - @student.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
+
+
+
+= link_to edit_student_path(@student), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
+\|
+= link_to students_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться к списку студентов

@@ -1,0 +1,41 @@
+.br
+.page-header
+  .h1=@plan.title
+
+
+%p
+  %b Код:
+  = @plan.code
+
+%p
+  %b Название:
+  = @plan.title
+
+%p
+  %b Уровень:
+  = @plan.level
+  
+%p
+  %b Форма обучения:
+  = @plan.form_of_study
+
+%p
+  %b Сроки обучения:
+  = @plan.training_period
+
+%p
+  %b Учебные группы:
+  %ul
+    - @plan.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
+
+
+
+= link_to edit_plan_path(@plan), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
+\|
+= link_to plans_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться назад

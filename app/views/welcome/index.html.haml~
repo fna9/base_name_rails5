@@ -1,0 +1,6 @@
+//%h1 Welcome#index
+//%p Find me in app/views/welcome/index.html.haml
+
+
+%h1 Добро пожаловать
+  %td= link_to 'Редактировать', edit_message_path(message), class: "btn btn-warning btn-xs"

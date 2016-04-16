@@ -1,0 +1,7 @@
+%h1 Список предметов
+
+= render 'form'
+
+= link_to 'Показать', @subject
+\|
+= link_to 'Назад', subjects_path

@@ -1,0 +1,10 @@
+= form_for @afile do |f|
+  - if @afile.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@afile.errors.count, "error")} prohibited this afile from being saved:"
+      %ul
+        - @afile.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Сохранить'

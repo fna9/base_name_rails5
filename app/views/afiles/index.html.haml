@@ -1,0 +1,19 @@
+%h1 Список вложений
+
+%table
+  %thead
+    %tr
+      %th Описание
+      %th
+      %th
+
+  %tbody
+    - @afiles.each do |afile|
+      %tr
+        %td= link_to 'Посмотреть', afile
+        %td= link_to 'Редактировать', edit_afile_path(afile)
+        %td= link_to 'Удалить', afile, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+
+%br
+
+= link_to 'Новое вложение', new_afile_path

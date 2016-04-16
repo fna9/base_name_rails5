@@ -1,0 +1,105 @@
+ru:
+  app:
+    name: Учебный портал
+    company:
+      short_name: ""
+      department: учреждение
+  helpers:
+    sure: Вы уверены?
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      plan: Учебный план
+      group: Группа
+      page: Страница
+      subject: Предмет
+      mark: Оценка
+      student: Студент
+      teacher: Преподаватель
+      rating: Рейтинговая отчетность
+      user: Пользователь
+      message: Сообщение
+      afile: Файл
+    attributes:
+      syllabus:
+        code: Код
+        title: Название
+        level: Уровень
+        form_of_study: Форма обучения
+        training_period: Срок обучения
+      group:
+        title: Название
+        course: Курс
+        semester: Семестр
+      page:
+        visibility: Видимость
+        header: Заголовок
+        contents: Содержание
+        alias: Псевдоним
+      subject:
+        title: Название
+        s_type: Тип
+        type_of_reporting: Вид итоговой отчетности
+        teachers: Преподаватели
+      student:
+        last_name: Фамилия
+        first_name: Имя
+        second_name: Отчество
+        b_date: Дата рождения
+        number_of_books: Номер зачетной книжки
+        passport_id: Номер паспорта
+        passport_series: Серия паспорта
+        image: Изображение
+        groups: Учебные группы
+        avatar: Изображение
+      mark:
+        mark: Оценка
+        comment: Комментарий
+      teacher:
+        last_name: Фамилия
+        first_name: Имя
+        second_name: Отчество
+        degree: Степень
+        rank: Звание
+        position: Должность
+        b_date: Дата рождения
+      rating:
+        title: Название
+        s_type: Тип
+        offset: "Зачет"
+        min_offset: нижняя граница
+        max_offset: верхняя граница
+        necessarily: обязательность
+      user:
+        login: Имя
+        email: Адрес электронной почты
+        password: Пароль
+        password_confirmation: Пароль (повторно)
+      message:
+        header: Заголовок
+        text: Текст
+      afile:
+        description: Описание
+      talk:
+        title: Название
+      university:
+        name: Название учебного заведения
+        full_name: Сокращенное название учебного заведения
+    errors:
+      models:
+        person:
+          attributes:
+            snils:
+              check_sum: имеет неправильную контрольную сумму
+

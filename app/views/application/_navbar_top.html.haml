@@ -1,0 +1,62 @@
+%nav.navbar.navbar-inverse.hidden-print#top-bar
+  .container-fluid
+    .navbar-header
+      .navbar-brand
+        = link_to root_path do
+          = image_tag '', alt: t('app.company.short_name')
+          = t('Учебный портал')
+          
+
+
+          
+      %button.navbar-toggle.collapsed{type: 'button', data: {toggle: 'collapse', target: '#bs-example-navbar-collapse-1'}}
+        %span.sr-only
+          Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+
+
+    %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %li.dropdown
+        = link_to('#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}, role: 'button', 'aria-expanded' => false) do
+          = @current_university.name
+          %span.caret
+        %ul.dropdown-menu{role: 'menu'}
+          - University.order(:name).to_a.each do |u|
+            - if u == @current_university
+              %li.selected-item
+                = link_to(welcome_path(current_university_id: u.id)) do
+                  = u.name
+            - else 
+              %li
+                = link_to(welcome_path(current_university_id: u.id)) do
+                  = u.name
+        
+      %li.dropdown
+        = link_to('#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}, role: 'button', 'aria-expanded' => false) do
+          = @current_role_user.try(:role).try(:name)
+          %span.caret
+        %ul.dropdown-menu{role: 'menu'}
+          - RoleUser.where(user_id: @current_user.try(:id)).includes(:role).order('roles.name').to_a.each do |r|
+            - if r == @current_role_user
+              %li.selected-item
+                = link_to(welcome_path(current_role_user_id: r.id)) do
+                  = r.role.name
+            - else 
+              %li
+                = link_to(welcome_path(current_role_user_id: r.id)) do
+                  = r.role.name
+        
+      %li
+        = link_to login_path do
+          = @current_user.blank? ? 'Войти' : @current_user.email
+      %li
+        - if @current_user.blank?
+          = link_to login_path do
+            = fa_icon 'sign-in'
+        - else
+          = link_to logout_path do
+            = fa_icon 'sign-out'
+

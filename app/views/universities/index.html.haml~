@@ -1,0 +1,39 @@
+.page-header
+  <h1>Учебные заведения</h1>
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Название
+
+
+      %th
+      %th
+
+  %tbody
+    - @universities.each do |university|
+      %tr
+        %td= university.full_name + ' ' + '(' + university.name + ')' 
+
+
+        %td
+          = link_to university, class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_university_path(university), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to university, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
+
+%br
+
+
+= link_to new_university_path, "data-toggle" => "tooltip", :title => "Добавить учебное заведение", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Добавить учебное заведение

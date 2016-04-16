@@ -1,0 +1,21 @@
+= form_for @mark do |f|
+  - if @mark.errors.any?
+    = error_messages_for @mark
+		
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :mark
+        =f.text_field(:mark, class: 'form-control')
+        =f.error_messages_for(:mark)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :comment
+        =f.text_field(:comment, class: 'form-control')
+        =f.error_messages_for(:comment)
+
+  .actions
+    = f.submit 'Сохранить'

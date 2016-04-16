@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Заголовок:
+  = @message.header
+%p
+  %b Текст:
+  = markdown(@message.text)
+%p
+  %b Беседа:
+  = @message.talk
+%p
+  %b Участники:
+  = @message.user
+
+= link_to 'Редактировать', edit_message_path(@message)
+\|
+= link_to 'Назад', messages_path
+
+
+

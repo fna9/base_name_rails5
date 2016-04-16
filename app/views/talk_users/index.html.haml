@@ -1,0 +1,23 @@
+%h1 Listing talk_users
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Talk
+      %th
+      %th
+      %th
+
+  %tbody
+    - @talk_users.each do |talk_user|
+      %tr
+        %td= talk_user.user
+        %td= talk_user.talk
+        %td= link_to 'Show', talk_user
+        %td= link_to 'Edit', edit_talk_user_path(talk_user)
+        %td= link_to 'Destroy', talk_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Talk user', new_talk_user_path

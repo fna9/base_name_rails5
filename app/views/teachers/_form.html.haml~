@@ -1,0 +1,51 @@
+= form_for @teacher do |f|
+  - if @teacher.errors.any?
+    = error_messages_for @teacher
+		
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :last_name
+        =f.text_field(:last_name, class: 'form-control')
+        =f.error_messages_for(:last_name)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :first_name
+        =f.text_field(:first_name, class: 'form-control')
+        =f.error_messages_for(:first_name)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :second_name
+        =f.text_field(:second_name, class: 'form-control')
+        =f.error_messages_for(:second_name)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :degree
+        =f.text_field(:degree, class: 'form-control')
+        =f.error_messages_for(:degree)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :rank
+        =f.text_field(:rank, class: 'form-control')
+        =f.error_messages_for(:rank)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :position
+        =f.text_field(:position, class: 'form-control')
+        =f.error_messages_for(:position)
+
+
+
+  .actions
+    = f.submit 'Сохранить'

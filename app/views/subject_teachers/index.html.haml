@@ -1,0 +1,23 @@
+%h1 Listing subject_teachers
+
+%table
+  %thead
+    %tr
+      %th Subject
+      %th Teacher
+      %th
+      %th
+      %th
+
+  %tbody
+    - @subject_teachers.each do |subject_teacher|
+      %tr
+        %td= subject_teacher.subject
+        %td= subject_teacher.teacher
+        %td= link_to 'Show', subject_teacher
+        %td= link_to 'Edit', edit_subject_teacher_path(subject_teacher)
+        %td= link_to 'Destroy', subject_teacher, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Subject teacher', new_subject_teacher_path

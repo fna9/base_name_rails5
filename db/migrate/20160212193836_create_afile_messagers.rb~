@@ -1,0 +1,12 @@
+class CreateAfileMessagers < ActiveRecord::Migration
+  def change
+    create_table :afile_messagers do |t|
+      t.references :afile, index: true
+      t.references :messager, index: true
+	t.foreeign_key :afiles
+	t.foreign_key :messagers
+
+      t.timestamps null: false
+    end
+  end
+end

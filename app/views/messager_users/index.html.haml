@@ -1,0 +1,23 @@
+%h1 Listing messager_users
+
+%table
+  %thead
+    %tr
+      %th Messager
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @messager_users.each do |messager_user|
+      %tr
+        %td= messager_user.messager
+        %td= messager_user.user
+        %td= link_to 'Show', messager_user
+        %td= link_to 'Edit', edit_messager_user_path(messager_user)
+        %td= link_to 'Destroy', messager_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Messager user', new_messager_user_path

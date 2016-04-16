@@ -1,0 +1,19 @@
+%h1 Рейтинг
+
+%table
+  %thead
+    %tr
+      %th Название
+      %th Тип
+      %th
+
+  %tbody
+    - @ratings.each do |rating|
+      %tr
+        %td= link_to 'Показать', rating
+        %td= link_to 'Редактировать', edit_rating_path(rating)
+        %td= link_to 'Удалить', rating, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+
+%br
+
+= link_to 'New Rating', new_rating_path

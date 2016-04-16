@@ -1,0 +1,19 @@
+%h1 Listing group_plans
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @group_plans.each do |group_plan|
+      %tr
+        %td= link_to 'Show', group_plan
+        %td= link_to 'Edit', edit_group_plan_path(group_plan)
+        %td= link_to 'Destroy', group_plan, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Group plan', new_group_plan_path

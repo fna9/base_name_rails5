@@ -1,0 +1,23 @@
+%h1 Listing afile_messagers
+
+%table
+  %thead
+    %tr
+      %th Afile
+      %th Messager
+      %th
+      %th
+      %th
+
+  %tbody
+    - @afile_messagers.each do |afile_messager|
+      %tr
+        %td= afile_messager.afile
+        %td= afile_messager.messager
+        %td= link_to 'Show', afile_messager
+        %td= link_to 'Edit', edit_afile_messager_path(afile_messager)
+        %td= link_to 'Destroy', afile_messager, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Afile messager', new_afile_messager_path

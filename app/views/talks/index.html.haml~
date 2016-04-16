@@ -1,0 +1,33 @@
+.page-header
+  <h1>Беседы</h1>
+
+%table.table
+  %thead
+    %tr
+      %th Название
+      %th
+      %th
+
+  %tbody
+    - @talks.each do |talk|
+      %tr
+        %td= link_to talk.title
+        -#%td= link_to talk.title.user_id.messager.id
+        %td
+          = link_to talk,"data-toggle" => "tooltip", :title => "Развернутая информация преподавателя", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_talk_path(talk), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to talk, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
+
+%br
+
+= link_to 'Новая беседа', new_talk_path, "data-toggle" => "tooltip", :title => "Создать новую беседу"

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @talk_user.user
+%p
+  %b Talk:
+  = @talk_user.talk
+
+= link_to 'Edit', edit_talk_user_path(@talk_user)
+\|
+= link_to 'Back', talk_users_path

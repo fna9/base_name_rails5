@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Plan:
+  = @plan_subject.plan
+%p
+  %b Subject:
+  = @plan_subject.subject
+
+= link_to 'Edit', edit_plan_subject_path(@plan_subject)
+\|
+= link_to 'Back', plan_subjects_path

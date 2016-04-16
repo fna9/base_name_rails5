@@ -1,0 +1,7 @@
+=link_to student, class: 'list-group-item' do
+  .media
+    -if student.avatar?
+      .media-left=image_tag student.avatar.url(:thumb), alt: student.last_name, class: 'media-object'
+    .media-body
+      %h4.media-heading=student.last_name
+

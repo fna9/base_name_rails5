@@ -1,0 +1,41 @@
+= form_for @subject do |f|
+  - if @subject.errors.any?
+    = error_messages_for @subject
+		
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :title
+        =f.text_field(:title, class: 'form-control')
+        =f.error_messages_for(:title)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :s_type
+        =f.text_field(:s_type, class: 'form-control')
+        =f.error_messages_for(:s_type)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :type_of_reporting
+        = f.select :type_of_reporting, [["Экзамен", 0], ["Дифференциальный зачет", 1], ["Зачет", 2]]
+        =f.error_messages_for(:type_of_reporting)
+        
+  .row
+    .col-md-8
+      .form-group
+        *
+        =f.label :teachers
+        =f.select(:teachers, 
+        options_for_select(Teacher.order(:last_name, :first_name, :second_name).all.map{ |g| [g.full_name, g.id] }.to_a, 
+        @st.nil? ? f.object.teachers.map(&:id) : @st), {}, {class: 'form-control selectpicker', multiple: true,
+        data: {value: @st.nil? ? f.object.teachers.map(&:id) : @st, 'live-search' => 'true'}})
+
+
+
+
+  .actions
+    = f.submit 'Сохранить'

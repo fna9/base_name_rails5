@@ -1,0 +1,23 @@
+%h1 Listing plan_subjects
+
+%table
+  %thead
+    %tr
+      %th Plan
+      %th Subject
+      %th
+      %th
+      %th
+
+  %tbody
+    - @plan_subjects.each do |plan_subject|
+      %tr
+        %td= plan_subject.plan
+        %td= plan_subject.subject
+        %td= link_to 'Show', plan_subject
+        %td= link_to 'Edit', edit_plan_subject_path(plan_subject)
+        %td= link_to 'Destroy', plan_subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Plan subject', new_plan_subject_path

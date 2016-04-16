@@ -1,0 +1,42 @@
+%h1
+  = @talk.title
+  - messages = [['Фомина Наталья', 'Привет, не поскажешь как решать задачу 1?', 'f.jpg'], ['Стрельская Дарья', 'Привет! Посмотри в Кормане на странице 112.', 's.jpg'], ['Фомина Наталья', 'Спасибо!', 'f.jpg']]
+  - users = [['Фомина Наталья', true, 'f.jpg'], ['Стрельская Дарья', false, 's.jpg']]
+.row
+  .col-md-8
+    - messages.each_with_index do |msg, i|
+      - if i % 2 == 1
+        .msg-right
+          .msg
+            .green
+              .msg-title
+                = msg[0]
+              .msg-body
+                = msg[1]    
+            = image_tag(msg[2], width: '100')
+        .clearfix
+      - if i % 2 == 0
+        .msg-left
+          .msg
+            = image_tag(msg[2], width: '100')
+            .yellow
+              .msg-title
+                = msg[0]
+              .msg-body
+                = msg[1]    
+        .clearfix
+  .col-md-4
+    - users.each do |u|
+      .msg-user
+        .name
+          = u[0]
+          %br
+          %div{class: "msg-color-#{u[1]}"}
+            &nbsp;
+        = image_tag(u[2], width: '50')
+        .clearfix
+
+= link_to talks_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться назад
+

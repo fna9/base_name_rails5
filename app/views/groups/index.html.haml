@@ -1,0 +1,41 @@
+.page-header
+  <h1>Учебные группы</h1>
+
+%table.table.table-responsive
+  %thead
+    %tr
+      %th Название
+      %th Курс
+      %th Семестр
+      %th Студенты
+
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td= link_to group.title, group_path(group)
+        %td= group.course
+        %td= group.semester
+        %td= raw(group.students.map{ |g| link_to(g.full_name, student_path(g)) }.join(', '))
+
+        %td
+          = link_to group, class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_group_path(group), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to group, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
+
+%br
+
+= link_to new_group_path, "data-toggle" => "tooltip", :title => "Добавить новую учебную группу", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Новая Группа
+
+

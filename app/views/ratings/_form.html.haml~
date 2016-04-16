@@ -1,0 +1,42 @@
+= form_for @rating do |f|
+  - if @rating.errors.any?
+    = error_messages_for @rating
+		
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :title
+        =f.text_field(:title, class: 'form-control')
+        =f.error_messages_for(:title)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :type
+        =f.text_field(:type, class: 'form-control')
+        =f.error_messages_for(:type)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :offset
+        =f.text_field(:offset, class: 'form-control')
+        =f.error_messages_for(:offset)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :min
+        =f.text_field(:min, class: 'form-control')
+        =f.error_messages_for(:min)
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :max
+        =f.text_field(:max, class: 'form-control')
+        =f.error_messages_for(:max)
+
+  .actions
+    = f.submit 'Сохранить'

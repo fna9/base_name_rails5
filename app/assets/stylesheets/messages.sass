@@ -1,0 +1,63 @@
+$yellow: #ffff00
+$green: #00ff00
+$red: #ff0000
+.msg-user
+  margin: 10px
+  border-style: solid
+  boder-size: 1px
+  border-color: darken($sidebar-bg, 15%)
+  background-color: $sidebar-bg
+  width: 90%
+  text-align: center
+  img
+    margin: 5px
+    display: inline-block
+    float: right
+  .name  
+    display: inline-block
+  .msg-color-true
+    display: inline-block
+    background-color: $green
+    min-width: 30px
+    border-radius: 50%
+  .msg-color-false
+    display: inline-block
+    background-color: $red
+    min-width: 30px
+    border-radius: 50%
+.msg
+  margin: 10px
+  img
+    border-radius: 50%
+    margin: 5px
+  .yellow
+    padding: 10px
+    border-style: solid
+    boder-size: 1px
+    border-radius: 10px
+    display: inline-block
+    width: 80%
+    background-color: lighten($yellow, 35%)
+    border-color: darken($yellow, 15%)
+  .green
+    padding: 10px
+    border-style: solid
+    boder-size: 1px
+    border-radius: 10px
+    display: inline-block
+    width: 80%
+    background-color: lighten($green, 35%)
+    border-color: darken($green, 15%)
+.msg-right
+  display: inline-block
+  width: 100%
+  float: right
+.msg-left
+  display: inline-block
+  width: 100%
+  float: left
+.msg-title
+  font-style: italic
+  font-size: 120%
+  padding: 10px 2px 10px 4px
+  color: lighten($gray-base, 50%) 

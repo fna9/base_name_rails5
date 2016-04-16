@@ -1,0 +1,21 @@
+%h1 Учебные планы
+
+%table
+  %thead
+    %tr
+      %th Код
+      %th Название
+      %th Уровень
+      %th Форма обучения
+      %th Сроки обучения
+
+  %tbody
+    - @plans.each do |plan|
+      %tr
+        %td= link_to 'Показать', plan
+        %td= link_to 'Редактировать', edit_plan_path(plan)
+        %td= link_to 'Удалить', plan, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Новый план', new_plan_path

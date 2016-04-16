@@ -1,0 +1,74 @@
+class AfileMassagersController < ApplicationController
+  before_action :set_afile_massager, only: [:show, :edit, :update, :destroy]
+
+  # GET /afile_massagers
+  # GET /afile_massagers.json
+  def index
+    @afile_massagers = AfileMassager.all
+  end
+
+  # GET /afile_massagers/1
+  # GET /afile_massagers/1.json
+  def show
+  end
+
+  # GET /afile_massagers/new
+  def new
+    @afile_massager = AfileMassager.new
+  end
+
+  # GET /afile_massagers/1/edit
+  def edit
+  end
+
+  # POST /afile_massagers
+  # POST /afile_massagers.json
+  def create
+    @afile_massager = AfileMassager.new(afile_massager_params)
+
+    respond_to do |format|
+      if @afile_massager.save
+        format.html { redirect_to @afile_massager, notice: 'Afile massager was successfully created.' }
+        format.json { render :show, status: :created, location: @afile_massager }
+      else
+        format.html { render :new }
+        format.json { render json: @afile_massager.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /afile_massagers/1
+  # PATCH/PUT /afile_massagers/1.json
+  def update
+    respond_to do |format|
+      if @afile_massager.update(afile_massager_params)
+        format.html { redirect_to @afile_massager, notice: 'Afile massager was successfully updated.' }
+        format.json { render :show, status: :ok, location: @afile_massager }
+      else
+        format.html { render :edit }
+        format.json { render json: @afile_massager.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /afile_massagers/1
+  # DELETE /afile_massagers/1.json
+  def destroy
+    @afile_massager.destroy
+    respond_to do |format|
+      format.html { redirect_to afile_massagers_url, notice: 'Afile massager was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_afile_massager
+      @afile_massager = AfileMassager.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def afile_massager_params
+      params.require(:afile_massager).permit(:afile_id, :messager_id)
+    end
+end

@@ -1,0 +1,36 @@
+.br
+.page-header
+  .h1=@subject.title
+
+
+%p
+  %b= Subject.human_attribute_name(:s_type)
+  = @subject.s_type
+
+%p
+  %b= Subject.human_attribute_name(:type_of_reporting)
+  = Subject::RTYPES[@subject.type_of_reporting]
+
+%p
+  %b= Subject.human_attribute_name(:teachers)
+    
+  .list-group
+    -@subject.teachers.each_with_index do |teacher, i|
+      =link_to(teacher, class: 'list-group-item') do
+        =(i + 1).to_s + '.'
+        = teacher.full_name
+        %span.badge
+          = [teacher.rank, teacher.degree].select{ |x| x.present? }.join(', ')
+%p
+  = markdown(@subject.pages.first.try(:contents).to_s)
+= link_to edit_subject_path(@subject), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
+\|
+= link_to subjects_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться 
+\|
+= link_to new_page_path(subject_id: @subject.id), class: "btn btn-primary" do
+  =fa_icon "plus"
+  Добавить раздел

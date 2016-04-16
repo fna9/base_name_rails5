@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Page:
+  = @page_subject.page
+%p
+  %b Subject:
+  = @page_subject.subject
+
+= link_to 'Edit', edit_page_subject_path(@page_subject)
+\|
+= link_to 'Back', page_subjects_path

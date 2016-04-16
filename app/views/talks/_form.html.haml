@@ -1,0 +1,13 @@
+= form_for @talk do |f|
+  - if @talk.errors.any?
+    = error_messages_for @talk
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :title
+        =f.text_field(:title, class: 'form-control')
+
+
+  .actions
+    = f.submit 'Сохранить'
