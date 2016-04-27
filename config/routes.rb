@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :plans
+  resources :plans do 
+    collection do
+      get :add_one_more
+    end
+  end
   resources :password_resets
 
   get 'welcome/index', as: :welcome

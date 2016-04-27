@@ -37,7 +37,9 @@
 
 %br
 
-= link_to 'Создать новый учебный план', new_plan_path
+= link_to new_plan_path, "data-toggle" => "tooltip", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Новый Учебный план
 
 
 

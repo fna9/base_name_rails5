@@ -37,6 +37,13 @@ module SideBarHelper
     elsif ru.is_admin?
     
       result << {
+        :name => 'Учебный план',
+        :icon => 'clone',
+        :controller => :plans,
+        :action => :index
+      }
+    
+      result << {
         :name => 'Университеты',
         :icon => 'cogs',
         :controller => :universities, 
@@ -116,6 +123,8 @@ module SideBarHelper
         :controller => :teachers,
         :action => :index
       }
+      
+
 
       result << {
         :name => 'Предметы',
@@ -201,6 +210,13 @@ module SideBarHelper
       ]}
 
       result << {
+        :name => 'Учебный план',
+        :icon => 'clone',
+        :controller => :plans,
+        :action => :index
+      }
+
+      result << {
         :name => 'Настройки',
         :icon => 'cogs',
         :controller => :universities, 
@@ -265,6 +281,13 @@ module SideBarHelper
          :icon => 'comments',
          :class =>'long'}
       ]}
+      
+      result << {
+        :name => 'Учебный план',
+        :icon => 'clone',
+        :controller => :plans,
+        :action => :index
+      }
 
       result << {
         :name => 'Настройки',

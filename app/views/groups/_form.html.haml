@@ -22,6 +22,8 @@
 
 
 
-
   .actions
-    = f.submit 'Сохранить'
+    = f.button "data-toggle" => "tooltip", class: "btn btn-primary" do
+      =fa_icon "check"
+      Сохранить
+      

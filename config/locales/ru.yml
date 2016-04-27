@@ -23,7 +23,7 @@ ru:
       plan: Учебный план
       group: Группа
       page: Страница
-      subject: Предмет
+      subject: Дисциплина
       mark: Оценка
       student: Студент
       teacher: Преподаватель
@@ -31,6 +31,7 @@ ru:
       user: Пользователь
       message: Сообщение
       afile: Файл
+      university: Учебное заведение
     attributes:
       syllabus:
         code: Код
@@ -96,6 +97,15 @@ ru:
       university:
         name: Название учебного заведения
         full_name: Сокращенное название учебного заведения
+      plan:
+        code: Код
+        title: Название
+        level: Уровень
+        form_of_study: Форма обучения
+        training_period: Период обучения
+        university_id: Учебное заведение
+        subjects: Дисциплины
+        groups: Учебные группы
     errors:
       models:
         person:

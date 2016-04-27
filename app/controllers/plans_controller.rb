@@ -29,6 +29,10 @@ class PlansController < ApplicationController
     if params.has_key?(:plan) and params[:plan].has_key?(:groups)
       @sg = params[:plan][:group].map{ |sg| sg.to_i } - [0]
     end    
+    if params.has_key?(:subject)
+      @ss = params[:subject].map{ |ss| ss.to_i} - [0]
+    end
+    raise @ss.inspect
     if @plan.save
       if @sg.kind_of?(Array)
         @plan.group_plans.delete_all
@@ -49,17 +53,36 @@ class PlansController < ApplicationController
     end
   end
 
+
+  def add_one_more
+    @subject = Subject.new
+    @i = params[:i].to_i
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
     if params.has_key?(:plan) and params[:plan].has_key?(:groups)
       @sg = params[:plan][:groups].map{ |sg| sg.to_i } - [0]
     end    
+    if params.has_key?(:subject)
+      @ss = params[:subject].map{ |ss| ss.to_i} - [0]
+    end
+
     if @plan.update(plan_params)
       if @sg.kind_of?(Array)
         @plan.group_plans.delete_all
         @sg.each do |gr_id|
           GroupPlan.create(group_id: gr_id.to_i, plan: @plan)
+        end
+      end
+      if @ss.kind_of?(Array)
+        @plan.plan_subjects.delete_all
+        @ss.each do |ss_id|
+          PlanSubject.create(subject_id: ss_id.to_i, plan: @plan)
         end
       end
     end

@@ -20,6 +20,12 @@ class SubjectsController < ApplicationController
   # GET /subjects/new
   def new
     @subject = Subject.new
+    respond_to do |format|
+      format.html
+      format.js do
+        @i = params[:i]
+      end
+    end
   end
 
   # GET /subjects/1/edit
@@ -46,10 +52,10 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.save
         format.html { redirect_to @subject, notice: 'Дисциплина успешно создан' }
-        format.json { render :show, status: :created, location: @subject }
+        format.js {@i = params[:i]}
       else
         format.html { render :new }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
+        format.js {@i = params[:i]}
       end
     end
   end
