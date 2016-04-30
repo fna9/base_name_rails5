@@ -8,8 +8,10 @@
       %th Название
       %th Уровень
       %th Форма обучения
-      %th Сроки обучения
+      %th Сроки обучения (начало-конец)
+      %th Сроки обучения (начало-конец)
       %th Учебные группы
+      %th Дисциплины
   %tbody
     - @plans.each do |plan|
       %tr
@@ -17,8 +19,10 @@
         %td= plan.title
         %td= plan.level
         %td= plan.form_of_study
-        %td= plan.training_period
+        %td= plan.training_period_start 
+        %td= plan.training_period_finish
         %td= raw(plan.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
+        %td= raw(plan.subjects.map{ |s| link_to(s.title, group_path(s)) }.join(', '))
         %td
           = link_to plan,"data-toggle" => "tooltip", :title => "Развернутая информация", class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"

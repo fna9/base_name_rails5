@@ -28,16 +28,21 @@
         .col-md-8
           .form-group
             =f.label :form_of_study
-            =f.text_field(:form_of_study, class: 'form-control')
+            =f.select :form_of_study, [["Очное", 0], ["Заочное", 1]]
             =f.error_messages_for(:for_of_study)
-
+            
 
         .col-md-4
           .form-group
-            =f.label :training_period
-            =f.number_field(:training_period, class: 'form-control')
-            =f.error_messages_for(:training_period)
+            =f.label :training_period_start
+            =f.number_field(:training_period_start, class: 'form-control')
+            =f.error_messages_for(:training_period_start)
             
+        .col-md-4
+          .form-group
+            =f.label :training_period_finish
+            =f.number_field(:training_period_finish, class: 'form-control')
+            =f.error_messages_for(:training_period_start)
 
             
       .row
@@ -62,12 +67,15 @@
             =link_to "Добавить еще дисциплину", add_one_more_plans_path(i: f.object.subjects.size), remote: true, id: "one_more"
 
         .col-md-6
-          .form-group
-            =f.label :groups
-            =f.select(:groups, 
-            options_for_select(Group.order(:title).all.map{ |g| [g.title, g.id] }.to_a, 
-            @sg.nil? ? f.object.groups.map(&:id) : @sg), {}, {class: 'form-control selectpicker', multiple: true,
-            data: {value: @sg.nil? ? f.object.groups.map(&:id) : @sg, 'live-search' => 'true'}})
+          =f.label :groups
+          -f.object.groups.each_with_index do |g, i|
+            .row 
+              .col-md-12
+                .form-group  
+                  =select_tag 'group[]', options_for_select(group_options, g.id), class: 'form-control selectpicker', data: {velue: g.id}
+                  =link_to "Нет в списке", new_group_path(i: i), remote: true, id: "new_groups_link#{i}"
+          .row
+            =link_to "Добавить еще группу", add_one_more_plans_path(i: f.object.groups.size), remote: true, id: "one_more"
 
 
 

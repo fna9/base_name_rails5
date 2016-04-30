@@ -30,9 +30,9 @@ class PlansController < ApplicationController
       @sg = params[:plan][:group].map{ |sg| sg.to_i } - [0]
     end    
     if params.has_key?(:subject)
-      @ss = params[:subject].map{ |ss| ss.to_i} - [0]
+      @sg = params[:subject].map{ |ss| ss.to_i} - [0]
     end
-    raise @ss.inspect
+   # raise @sg.inspect
     if @plan.save
       if @sg.kind_of?(Array)
         @plan.group_plans.delete_all
@@ -116,6 +116,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:code, :title, :level, :form_of_study, :training_period, :groups_id, :university_id)
+      params.require(:plan).permit(:code, :title, :level, :form_of_study, :training_period_start, :training_period_finish, :groups_id, :university_id)
     end
 end

@@ -20,8 +20,12 @@
   = @plan.form_of_study
 
 %p
-  %b Сроки обучения:
-  = @plan.training_period
+  %b Сроки обучения (начало обучения):
+  = @plan.training_period_start
+  
+%p
+  %b Сроки обучения (конец обучения):
+  = @plan.training_period_finish
 
 %p
   %b Учебные группы:
@@ -29,6 +33,13 @@
     - @plan.groups.each do |gr|
       %li
         = link_to gr.title, group_path(gr) 
+        
+%p
+  %b Дисциплины:
+  %ul
+    - @plan.subjects.each do |gs|
+      %li
+        = link_to gr.title, subject_path(gs) 
 
 
 

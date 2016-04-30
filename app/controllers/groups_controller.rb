@@ -15,6 +15,12 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    respond_to do |format|
+      format.html
+      format.js do
+        @i = params[:i]
+      end
+    end
   end
 
   # GET /groups/1/edit
@@ -40,11 +46,11 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Группа успешно создана.' }
-        format.json { render :show, status: :created, location: @group }
+        format.html { redirect_to @group, notice: 'Группа успешно создана' }
+        format.js {@i = params[:i]}
       else
         format.html { render :new }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.js {@i = params[:i]}
       end
     end
   end

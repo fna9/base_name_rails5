@@ -13,5 +13,8 @@ class Plan < ActiveRecord::Base
 	validates :title, presence: true
 	validates :level, presence: true
 	validates :form_of_study, presence: true
-	validates :training_period, presence: true
+	validates :training_period_start, presence: true
+	validates :training_period_finish, presence: true
+	
+	FTYPES = ['Очное', 'Заочное']
 end

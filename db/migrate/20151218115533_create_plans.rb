@@ -5,7 +5,8 @@ class CreatePlans < ActiveRecord::Migration
       t.string :title, :null => false
       t.float :level, :null => false
       t.string :form_of_study, :null => false
-      t.date :training_period, :null => false
+      t.date :training_period_start, :null => false
+      t.date :training_period_finish, :null => false
       t.references :university, index: true, :null => false
 
       t.timestamps null: false

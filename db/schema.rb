@@ -160,14 +160,15 @@ ActiveRecord::Schema.define(version: 20160326142359) do
   add_index "plan_subjects", ["subject_id"], name: "index_plan_subjects_on_subject_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
-    t.string   "code",            null: false
-    t.string   "title",           null: false
-    t.float    "level",           null: false
-    t.string   "form_of_study",   null: false
-    t.integer  "university_id",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "training_period", null: false
+    t.string   "code",                   null: false
+    t.string   "title",                  null: false
+    t.float    "level",                  null: false
+    t.string   "form_of_study",          null: false
+    t.integer  "university_id",          null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "training_period_start",  null: false
+    t.integer  "training_period_finish", null: false
   end
 
   add_index "plans", ["university_id"], name: "index_plans_on_university_id", using: :btree
@@ -344,6 +345,7 @@ ActiveRecord::Schema.define(version: 20160326142359) do
   add_foreign_key "messager_users", "users"
   add_foreign_key "messages", "talks"
   add_foreign_key "messages", "users"
+  add_foreign_key "page_pages", "pages", column: "page1_id"
   add_foreign_key "page_pages", "pages", column: "page2_id"
   add_foreign_key "page_subjects", "pages"
   add_foreign_key "page_subjects", "subjects"
@@ -355,5 +357,6 @@ ActiveRecord::Schema.define(version: 20160326142359) do
   add_foreign_key "subject_teachers", "subjects"
   add_foreign_key "subject_teachers", "teachers"
   add_foreign_key "talk_users", "talks"
+  add_foreign_key "talk_users", "users", column: "user1_id"
   add_foreign_key "talk_users", "users", column: "user2_id"
 end
