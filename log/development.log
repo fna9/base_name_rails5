@@ -13381,3 +13381,449 @@ Processing by GroupsController#index as HTML
 Completed 200 OK in 1480ms (Views: 1359.0ms | ActiveRecord: 63.0ms)
 
 
+Started GET "/pages" for 127.0.0.1 at 2016-04-30 18:34:22 +0300
+Processing by PagesController#index as HTML
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (7.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPage Load (3.0ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.haml within layouts/application (65.2ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (141.9ms)
+  [1m[36mStudent Load (6.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (143.2ms)
+  Rendered application/_flash_messages.html.haml (10.5ms)
+  [1m[35mSQL (24.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-04-30 15:34:24.163377' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1834ms (Views: 1662.4ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/welcome/index?current_role_user_id=1" for 127.0.0.1 at 2016-04-30 18:34:31 +0300
+Processing by WelcomeController#index as HTML
+  Parameters: {"current_role_user_id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.haml within layouts/application (11.2ms)
+  [1m[36mUniversity Load (1.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (107.4ms)
+  Rendered application/_sidebar.html.haml (40.4ms)
+  Rendered application/_flash_messages.html.haml (8.7ms)
+  [1m[35mSQL (22.4ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-04-30 15:34:32.428643' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1323ms (Views: 1235.9ms | ActiveRecord: 30.8ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+Started GET "/" for 127.0.0.1 at 2016-05-07 13:09:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (39.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUniversity Load (29.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.haml within layouts/application (27.3ms)
+  [1m[36mUniversity Load (3.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[35mSQL (39.4ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" IS NULL ORDER BY roles.name[0m
+  Rendered application/_navbar_top.html.haml (709.9ms)
+  Rendered application/_sidebar.html.haml (24.9ms)
+  Rendered application/_flash_messages.html.haml (5.9ms)
+Completed 200 OK in 13315ms (Views: 12676.7ms | ActiveRecord: 267.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-07 13:10:11 +0300
+Processing by WelcomeController#new as HTML
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered welcome/_form.html.haml (29.8ms)
+  Rendered welcome/new.html.haml within layouts/application (42.1ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" IS NULL ORDER BY roles.name[0m
+  Rendered application/_navbar_top.html.haml (105.7ms)
+  Rendered application/_sidebar.html.haml (46.9ms)
+  Rendered application/_flash_messages.html.haml (5.1ms)
+Completed 200 OK in 2146ms (Views: 1255.5ms | ActiveRecord: 29.9ms)
+
+
+Started POST "/try_login" for 127.0.0.1 at 2016-05-07 13:10:20 +0300
+Processing by WelcomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0UGierNh2jazLRnAkD6miN9mxzIslu+lvrJhmxSgQ860oXxhfAwppGBrNF7GgIbUCORIGJUH7Mtruc5XiCILaQ==", "email"=>"bolonka94@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"false", "commit"=>"Войти"}
+  [1m[36mUniversity Load (6.9ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (236.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'bolonka94@gmail.com' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35mSQL (21.5ms)[0m  [1m[33mUPDATE "users" SET "failed_logins_count" = 0 WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (12.6ms)[0m  [1m[33mUPDATE "users" SET "last_login_at" = '2016-05-07 10:10:21.383824' WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (13.8ms)[0m  [1m[33mUPDATE "users" SET "last_login_from_ip_address" = '127.0.0.1' WHERE "users"."id" = $1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+  [1m[35mSQL (8.7ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:21.427739' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 1120ms (ActiveRecord: 299.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-07 13:10:21 +0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.2ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 ORDER BY "role_users"."id" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.haml within layouts/application (15.8ms)
+  [1m[36mUniversity Load (1.3ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (159.4ms)
+  Rendered application/_sidebar.html.haml (81.9ms)
+  Rendered application/_flash_messages.html.haml (5.1ms)
+  [1m[35mSQL (25.7ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:23.465848' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1944ms (Views: 1620.3ms | ActiveRecord: 34.1ms)
+
+
+Started GET "/welcome/index?current_role_user_id=2" for 127.0.0.1 at 2016-05-07 13:10:28 +0300
+Processing by WelcomeController#index as HTML
+  Parameters: {"current_role_user_id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (9.7ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (5.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered welcome/index.html.haml within layouts/application (3.5ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (106.0ms)
+  [1m[36mStudent Load (118.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (320.4ms)
+  Rendered application/_flash_messages.html.haml (5.5ms)
+  [1m[35mSQL (20.8ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:29.781927' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1626ms (Views: 1392.1ms | ActiveRecord: 162.7ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 13:10:32 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (5.3ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.0ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (31.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (27.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (26.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (667.9ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (112.9ms)
+  [1m[36mStudent Load (1.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (88.6ms)
+  Rendered application/_flash_messages.html.haml (10.5ms)
+  [1m[35mSQL (17.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:34.563962' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1898ms (Views: 1571.3ms | ActiveRecord: 158.9ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 13:10:40 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.0ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (6.6ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (5.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (2.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (2.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (4.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (446.0ms)
+  Rendered plans/edit.html.haml within layouts/application (480.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (4.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (123.3ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (95.9ms)
+  Rendered application/_flash_messages.html.haml (6.5ms)
+  [1m[35mSQL (19.8ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:42.705895' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1802ms (Views: 1649.0ms | ActiveRecord: 48.8ms)
+
+
+Started GET "/plans/add_one_more?i=2" for 127.0.0.1 at 2016-05-07 13:10:57 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"2"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (4.3ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (7.6ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (14.5ms)
+  Rendered plans/add_one_more.js.coffee (394.6ms)
+  [1m[35mSQL (82.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:10:58.155915' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 695ms (Views: 482.3ms | ActiveRecord: 97.9ms)
+
+
+Started PATCH "/plans/1" for 127.0.0.1 at 2016-05-07 13:11:02 +0300
+Processing by PlansController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R998NTRTWzumO8l3DJ5d3rr1nBCxfd3DzVnnRs7idVoiP6Iu+z6oqXV95OlaIH2CbXcTOgjs3q0YUkiKUmA9/Q==", "plan"=>{"code"=>"1", "title"=>"name", "level"=>"2.0", "form_of_study"=>"0", "training_period_start"=>"2", "training_period_finish"=>"5", "university_id"=>"1"}, "subject"=>["2"], "group"=>["2", "5"], "button"=>"", "id"=>"1"}
+  [1m[36mUser Load (18.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.0ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.7ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (13.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (10.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "plan_subjects" SET "plan_id" = NULL WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[35m (12.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (21.4ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 10:11:02 UTC], ["updated_at", 2016-05-07 10:11:02 UTC]]
+  [1m[35m (54.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/plans/1
+  [1m[35mSQL (6.7ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:11:03.035817' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 574ms (ActiveRecord: 178.0ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 13:11:03 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (0.8ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (3.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (7.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (1098.9ms)
+Completed 500 Internal Server Error in 1200ms (ActiveRecord: 18.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `gr' for #<#<Class:0xba76b528>:0xb2a43230>):
+    39:   %ul
+    40:     - @plan.subjects.each do |gs|
+    41:       %li
+    42:         = link_to gr.title, subject_path(gs) 
+    43: 
+    44: 
+    45: 
+  
+app/views/plans/show.html.haml:42:in `block in _app_views_plans_show_html_haml__647682506__648930298'
+app/views/plans/show.html.haml:40:in `_app_views_plans_show_html_haml__647682506__648930298'
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (54.7ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (24.5ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.7ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (231.1ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/console.js.erb within layouts/javascript (147.5ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/index.html.erb (260.0ms)
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 13:12:00 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.1ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (0.9ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (1.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (1.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (58.0ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (125.9ms)
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (96.5ms)
+  Rendered application/_flash_messages.html.haml (5.8ms)
+  [1m[35mSQL (26.4ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:12:02.382083' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1508ms (Views: 1404.0ms | ActiveRecord: 47.6ms)
+
+
+Started GET "/assets/theme.self-724107ed571d2ffd7c184ccba46ab91918fc497f28f2a915b831436a727fc324.css?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/application.self-34460ac65147ed50a91ccc42616cd907401a6235d0f73769fc74d6f1a397c43a.css?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:02 +0300
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/bootstrap-datetimepicker.self-f4c780e77f9e34c90cc43fc2a2bc2d2f11d5b54470904990480fc9cb434d918c.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/bootstrap-select/bootstrap-select.min.self-db98bbf21f44a609e8a6275c1c2fd04207587621ad7dd637c62b0ca0a7868038.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/moment/ru.self-5ffb62cd54845c383819bda33f7905add47563617bebdac9bc6d704e3d5af040.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:03 +0300
+Started GET "/assets/bootstrap-select/defaults-ru_RU.self-a0230e44b6262351bdb7e8cc6623f065a2b44362bed5cce0f36eb557ce709902.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/main.self-d181aae9dfefbfb9818801ef4c296b74b5e6c0c532933b09b918ab7c5a1f99a9.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:04 +0300
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/role_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/roles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:05 +0300
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/application.self-b5567fb0cb73f9d4ecd4fa178bbc995d9efe2b53da5e5bf4ca587adb307de5b1.js?body=1" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/pica-0efe9b2925479ca67deb6cafe1a207f4bfb3088602ad479fc4d3b644d485dc98.gif" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/fontawesome-webfont-d3ebb498192527b985939ae62cc4e5eb5c108efc1896184126b45d866868e73d.woff2?v=4.6.1" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-05-07 13:12:06 +0300
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 13:12:12 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.9ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (2.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (6.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (150.4ms)
+  [1m[36mUniversity Load (2.3ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (7.3ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (251.6ms)
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (86.9ms)
+  Rendered application/_flash_messages.html.haml (8.4ms)
+  [1m[35mSQL (266.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:12:14.324347' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1907ms (Views: 1527.3ms | ActiveRecord: 307.8ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 13:13:25 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.5ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.4ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (7.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (2.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (2.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (9.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mGroup Load (6.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (5.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (367.9ms)
+  Rendered plans/edit.html.haml within layouts/application (404.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (104.3ms)
+  [1m[36mStudent Load (2.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (90.9ms)
+  Rendered application/_flash_messages.html.haml (7.9ms)
+  [1m[35mSQL (26.7ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:13:27.545234' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1622ms (Views: 1454.1ms | ActiveRecord: 76.3ms)
+
+
+Started GET "/plans/add_one_more?i=2" for 127.0.0.1 at 2016-05-07 13:13:54 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"2"}
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.6ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (8.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (29.7ms)
+  Rendered plans/add_one_more.js.coffee (141.6ms)
+  [1m[35mSQL (19.3ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:13:54.495172' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 303ms (Views: 193.2ms | ActiveRecord: 53.4ms)
+
+
+Started PATCH "/plans/1" for 127.0.0.1 at 2016-05-07 13:14:09 +0300
+Processing by PlansController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9OKsSJK9mJPCi0yzaahKz8skbTRet4O7JLDO235uMCCRAnJTXdBrARHNYS0/FmqTHKbiHucmgNXxu2EX4ux4hw==", "plan"=>{"code"=>"1", "title"=>"name", "level"=>"2.0", "form_of_study"=>"0", "training_period_start"=>"2", "training_period_finish"=>"5", "university_id"=>"1"}, "subject"=>["2", "1"], "group"=>["2", "5"], "button"=>"", "id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (12.7ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (7.3ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (13.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (22.6ms)[0m  [1m[33mUPDATE "plan_subjects" SET "plan_id" = NULL WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 10:14:09 UTC], ["updated_at", 2016-05-07 10:14:09 UTC]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 1], ["created_at", 2016-05-07 10:14:09 UTC], ["updated_at", 2016-05-07 10:14:09 UTC]]
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/plans/1
+  [1m[35mSQL (11.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:14:09.467884' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 266ms (ActiveRecord: 106.8ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 13:14:09 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (3.6ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.4ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (3.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (2.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (103.2ms)
+  [1m[36mUniversity Load (2.3ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (4.9ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (144.9ms)
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (109.7ms)
+  Rendered application/_flash_messages.html.haml (5.9ms)
+  [1m[35mSQL (38.2ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:14:10.985900' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1468ms (Views: 1353.2ms | ActiveRecord: 65.4ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2016-05-07 13:14:42 +0300
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.5ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (4.9ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (56.8ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (120.3ms)
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (92.3ms)
+  Rendered application/_flash_messages.html.haml (9.4ms)
+  [1m[35mSQL (26.9ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 10:14:43.800175' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1310ms (Views: 1171.8ms | ActiveRecord: 54.8ms)
+
+
