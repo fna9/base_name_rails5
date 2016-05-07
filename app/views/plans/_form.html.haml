@@ -64,7 +64,7 @@
                   =select_tag 'subject[]', options_for_select(subject_options, s.id), class: 'form-control selectpicker', data: {velue: s.id}
                   =link_to "Нет в списке", new_subject_path(i: i), remote: true, id: "new_subjects_link#{i}"
           .row
-            =link_to "Добавить еще дисциплину", add_one_more_plans_path(i: f.object.subjects.size), remote: true, id: "one_more"
+            =link_to "Добавить еще дисциплину", add_one_more_plans_path(i: f.object.subjects.size, object: :subject), remote: true, id: "one_more_subject"
 
         .col-md-6
           =f.label :groups
@@ -75,7 +75,7 @@
                   =select_tag 'group[]', options_for_select(group_options, g.id), class: 'form-control selectpicker', data: {velue: g.id}
                   =link_to "Нет в списке", new_group_path(i: i), remote: true, id: "new_groups_link#{i}"
           .row
-            =link_to "Добавить еще группу", add_one_more_plans_path(i: f.object.groups.size), remote: true, id: "one_more"
+            =link_to "Добавить еще группу", add_one_more_plans_path(i: f.object.groups.size, object: :group), remote: true, id: "one_more_group"
 
 
 

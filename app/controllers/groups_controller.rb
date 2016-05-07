@@ -42,8 +42,7 @@ class GroupsController < ApplicationController
         end
       end
     end
-   
-
+    
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Группа успешно создана' }

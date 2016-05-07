@@ -55,7 +55,12 @@ class PlansController < ApplicationController
 
 
   def add_one_more
-    @subject = Subject.new
+    @object = params[:object]
+    if params[:object] == 'subject'
+      @subject = Subject.new
+    elsif params[:object] == 'group'
+      @group = Group.new
+    end
     @i = params[:i].to_i
     respond_to do |format|
       format.js

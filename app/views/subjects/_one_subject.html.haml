@@ -1,6 +1,5 @@
-.row 
-  .col-md-12
-    .form-group  
-      =select_tag 'subject[]', options_for_select(subject_options, @subject.id), class: 'form-control selectpicker', data: {velue: @subject.id}
-      =link_to "Нет в списке", new_subject_path(i: @i), remote: true, id: "new_subjects_link#{@i}"
+.col-md-12
+  .form-group  
+    =select_tag 'subject[]', options_for_select(subject_options, @subject.id), class: 'form-control selectpicker', data: {velue: @subject.id}
+    =link_to "Нет в списке", new_subject_path(i: @i), remote: true, id: "new_subjects_link#{@i}"
 
