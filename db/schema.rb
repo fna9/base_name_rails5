@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20160326142359) do
     t.string   "code",                   null: false
     t.string   "title",                  null: false
     t.float    "level",                  null: false
-    t.string   "form_of_study",          null: false
+    t.integer  "form_of_study",          null: false
     t.integer  "university_id",          null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

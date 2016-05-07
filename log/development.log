@@ -14049,3 +14049,1972 @@ Processing by UniversitiesController#index as HTML
 Completed 200 OK in 1836ms (Views: 1747.2ms | ActiveRecord: 36.7ms)
 
 
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:00:01 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.3ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (11.3ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (5.0ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (3.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (9.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (172.3ms)
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (108.9ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (73.2ms)
+  Rendered application/_flash_messages.html.haml (4.6ms)
+  [1m[35mSQL (24.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:00:03.239938' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1964ms (Views: 1833.5ms | ActiveRecord: 63.8ms)
+
+
+Started GET "/plans/new" for 127.0.0.1 at 2016-05-07 11:00:40 +0300
+Processing by PlansController#new as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.8ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.5ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (9.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  Rendered plans/_form.html.haml (272.5ms)
+  Rendered plans/new.html.haml within layouts/application (296.6ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (114.9ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (73.9ms)
+  Rendered application/_flash_messages.html.haml (7.8ms)
+  [1m[35mSQL (18.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:00:42.248464' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1703ms (Views: 1609.0ms | ActiveRecord: 35.6ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2016-05-07 11:01:55 +0300
+Processing by SubjectsController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (7.5ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  Rendered subjects/index.html.haml within layouts/application (155.8ms)
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (3.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (165.8ms)
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (77.1ms)
+  Rendered application/_flash_messages.html.haml (5.4ms)
+  [1m[35mSQL (24.7ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:01:58.435953' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 2411ms (Views: 2229.2ms | ActiveRecord: 44.3ms)
+
+
+Started GET "/subjects/new" for 127.0.0.1 at 2016-05-07 11:02:03 +0300
+Processing by SubjectsController#new as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (10.9ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mTeacher Load (34.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" ORDER BY "teachers"."last_name" ASC, "teachers"."first_name" ASC, "teachers"."second_name" ASC[0m
+  Rendered subjects/_form.html.haml (433.4ms)
+  Rendered subjects/new.html.haml within layouts/application (454.2ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (105.2ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (69.2ms)
+  Rendered application/_flash_messages.html.haml (5.8ms)
+  [1m[35mSQL (24.3ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:02:05.258420' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1762ms (Views: 1617.0ms | ActiveRecord: 95.8ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:03:27 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (0.9ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  Rendered plans/index.html.haml within layouts/application (79.9ms)
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 4.9ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Integer):
+    18:         %td= plan.code
+    19:         %td= plan.title
+    20:         %td= plan.level
+    21:         %td= Plan::FTYPES[plan.form_of_study]
+    22:         %td= plan.training_period_start 
+    23:         %td= plan.training_period_finish
+    24:         %td= raw(plan.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
+  
+app/views/plans/index.html.haml:21:in `[]'
+app/views/plans/index.html.haml:21:in `block in _app_views_plans_index_html_haml___33856810__648498368'
+app/views/plans/index.html.haml:16:in `_app_views_plans_index_html_haml___33856810__648498368'
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (58.5ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (27.3ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.7ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (212.4ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_markup.html.erb (2.1ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.3ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/console.js.erb within layouts/javascript (119.4ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/index.html.erb (207.8ms)
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:03:29 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (6.2ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  Rendered plans/index.html.haml within layouts/application (39.2ms)
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 11.2ms)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Integer):
+    18:         %td= plan.code
+    19:         %td= plan.title
+    20:         %td= plan.level
+    21:         %td= Plan::FTYPES[plan.form_of_study]
+    22:         %td= plan.training_period_start 
+    23:         %td= plan.training_period_finish
+    24:         %td= raw(plan.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
+  
+app/views/plans/index.html.haml:21:in `[]'
+app/views/plans/index.html.haml:21:in `block in _app_views_plans_index_html_haml___33856810__649532508'
+app/views/plans/index.html.haml:16:in `_app_views_plans_index_html_haml___33856810__649532508'
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (62.8ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (40.6ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.8ms)
+  Rendered /opt/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (242.7ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/console.js.erb within layouts/javascript (136.9ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/natalia/.gem/ruby/2.2.4/gems/web-console-3.1.1/lib/web_console/templates/index.html.erb (238.8ms)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8631065087834146755);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRoleUsers (20160326142359)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRoleUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (264.0ms)[0m  [1m[35mDROP TABLE "role_users"[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160326142359"]]
+  [1m[35m (27.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20160326142253)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRoles < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (5.3ms)[0m  [1m[35mDROP TABLE "roles"[0m
+  [1m[35mSQL (8.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160326142253"]]
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToStudent (20160319111036)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddUserIdToStudent < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (30.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.8ms)[0m  [1m[35mALTER TABLE "students" DROP CONSTRAINT "fk_rails_148c9e88f4"[0m
+  [1m[35m (39.6ms)[0m  [1m[35mALTER TABLE "students" DROP "user_id"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160319111036"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeTrainingPeriodToPlans (20160319103015)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class ChangeTrainingPeriodToPlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "plans" DROP "training_period_finish"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "plans" DROP "training_period_start"[0m
+  [1m[35m (38.9ms)[0m  [1m[35mALTER TABLE "plans" ADD "training_period_finish" integer[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "plans" ADD "training_period_start" integer[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160319103015"]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUniversities (20160311211144)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateUniversities < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (5.9ms)[0m  [1m[35mDROP TABLE "universities"[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160311211144"]]
+  [1m[35m (22.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAfileMessagers (20160212193836)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateAfileMessagers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (7.3ms)[0m  [1m[35mDROP TABLE "afile_messagers"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212193836"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessagerUsers (20160212193140)
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMessagerUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (7.5ms)[0m  [1m[35mDROP TABLE "messager_users"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212193140"]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupStudents (20160212192625)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroupStudents < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (7.5ms)[0m  [1m[35mDROP TABLE "group_students"[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212192625"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSubjectTeachers (20160212190647)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSubjectTeachers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (18.4ms)[0m  [1m[35mDROP TABLE "subject_teachers"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212190647"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlanSubjects (20160212183407)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePlanSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (18.9ms)[0m  [1m[35mDROP TABLE "plan_subjects"[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212183407"]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20160212103449)
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMessages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (10.8ms)[0m  [1m[35mDROP TABLE "messages"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20160212103449"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePageSubjects (20151219090047)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePageSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (7.3ms)[0m  [1m[35mDROP TABLE "page_subjects"[0m
+  [1m[35mSQL (11.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151219090047"]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePagePages (20151219084735)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePagePages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (17.4ms)[0m  [1m[35mDROP TABLE "page_pages"[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151219084735"]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTalkUsers (20151219073234)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTalkUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (32.3ms)[0m  [1m[35mDROP TABLE "talk_users"[0m
+  [1m[35mSQL (18.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151219073234"]]
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupPlans (20151219065058)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroupPlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (19.2ms)[0m  [1m[35mDROP TABLE "group_plans"[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151219065058"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTalks (20151218122449)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTalks < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (15.6ms)[0m  [1m[35mDROP TABLE "talks"[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218122449"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAfiles (20151218122439)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateAfiles < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE "afiles"[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218122439"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePages (20151218122404)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE "pages"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218122404"]]
+  [1m[35m (13.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20151218122355)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRatings < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE "ratings"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218122355"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSubjects (20151218122017)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.4ms)[0m  [1m[35mDROP TABLE "subjects"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218122017"]]
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMarks (20151218121926)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMarks < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE "marks"[0m
+  [1m[35mSQL (8.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218121926"]]
+  [1m[35m (21.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStudents (20151218121913)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE "students"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218121913"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroups (20151218121904)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroups < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.3ms)[0m  [1m[35mDROP TABLE "groups"[0m
+  [1m[35mSQL (7.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218121904"]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeachers (20151218121154)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTeachers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (6.3ms)[0m  [1m[35mDROP TABLE "teachers"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218121154"]]
+  [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlans (20151218115533)
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE "plans"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151218115533"]]
+  [1m[35m (11.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryActivityLogging (20151204090520)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryActivityLogging < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (2.4ms)[0m  [1m[35mDROP INDEX  "index_users_on_last_logout_at_and_last_activity_at"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mALTER TABLE "users" DROP "last_login_from_ip_address"[0m
+  [1m[35m (4.1ms)[0m  [1m[35mALTER TABLE "users" DROP "last_activity_at"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" DROP "last_logout_at"[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "users" DROP "last_login_at"[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090520"]]
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryBruteForceProtection (20151204090519)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryBruteForceProtection < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (0.8ms)[0m  [1m[35mDROP INDEX  "index_users_on_unlock_token"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "users" DROP "unlock_token"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" DROP "lock_expires_at"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" DROP "failed_logins_count"[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090519"]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryUserActivation (20151204090518)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryUserActivation < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (0.8ms)[0m  [1m[35mDROP INDEX  "index_users_on_activation_token"[0m
+  [1m[35m (5.8ms)[0m  [1m[35mALTER TABLE "users" DROP "activation_token_expires_at"[0m
+  [1m[35m (4.7ms)[0m  [1m[35mALTER TABLE "users" DROP "activation_token"[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" DROP "activation_state"[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090518"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryResetPassword (20151204090517)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryResetPassword < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (4.5ms)[0m  [1m[35mDROP INDEX  "index_users_on_reset_password_token"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" DROP "reset_password_email_sent_at"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "users" DROP "reset_password_token_expires_at"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" DROP "reset_password_token"[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090517"]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryRememberMe (20151204090516)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryRememberMe < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (0.8ms)[0m  [1m[35mDROP INDEX  "index_users_on_remember_me_token"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" DROP "remember_me_token_expires_at"[0m
+  [1m[35m (5.6ms)[0m  [1m[35mALTER TABLE "users" DROP "remember_me_token"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090516"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryCore (20151204090515)
+  [1m[35m (4.9ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryCore < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (0.8ms)[0m  [1m[35mDROP INDEX  "index_users_on_email"[0m
+  [1m[35m (15.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151204090515"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDelayedJobs (20151203154714)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateDelayedJobs < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (15.9ms)[0m  [1m[35mDROP TABLE "delayed_jobs"[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151203154714"]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVersions (20151203152020)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateVersions < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (0.9ms)[0m  [1m[35mDROP INDEX  "index_versions_on_item_type_and_item_id"[0m
+  [1m[35m (9.9ms)[0m  [1m[35mDROP TABLE "versions"[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20151203152020"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8631065087834146755)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (14.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'specialties'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8631065087834146755);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateVersions (20151203152020)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateVersions < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (222.3ms)[0m  [1m[35mCREATE TABLE "versions" ("id" serial primary key, "item_type" character varying NOT NULL, "item_id" integer NOT NULL, "event" character varying NOT NULL, "whodunnit" character varying, "object" text, "created_at" timestamp) [0m
+  [1m[35m (47.9ms)[0m  [1m[35mCREATE  INDEX  "index_versions_on_item_type_and_item_id" ON "versions"  ("item_type", "item_id")[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151203152020"]]
+  [1m[35m (24.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDelayedJobs (20151203154714)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateDelayedJobs < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (109.3ms)[0m  [1m[35mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying, "queue" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (59.7ms)[0m  [1m[35mCREATE  INDEX  "delayed_jobs_priority" ON "delayed_jobs"  ("priority", "run_at")[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151203154714"]]
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryCore (20151204090515)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryCore < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (111.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying NOT NULL, "crypted_password" character varying, "salt" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (48.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090515"]]
+  [1m[35m (11.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryRememberMe (20151204090516)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryRememberMe < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_me_token" character varying[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_me_token_expires_at" timestamp[0m
+  [1m[35m (47.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_remember_me_token" ON "users"  ("remember_me_token")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090516"]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryResetPassword (20151204090517)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryResetPassword < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token_expires_at" timestamp[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_email_sent_at" timestamp[0m
+  [1m[35m (36.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090517"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryUserActivation (20151204090518)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryUserActivation < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_state" character varying[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_token" character varying[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_token_expires_at" timestamp[0m
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_activation_token" ON "users"  ("activation_token")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090518"]]
+  [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryBruteForceProtection (20151204090519)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryBruteForceProtection < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (272.8ms)[0m  [1m[35mALTER TABLE "users" ADD "failed_logins_count" integer DEFAULT 0[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "lock_expires_at" timestamp[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "unlock_token" character varying[0m
+  [1m[35m (44.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_unlock_token" ON "users"  ("unlock_token")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090519"]]
+  [1m[35m (20.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryActivityLogging (20151204090520)
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class SorceryActivityLogging < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "last_login_at" timestamp[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "users" ADD "last_logout_at" timestamp[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "last_activity_at" timestamp[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "last_login_from_ip_address" character varying[0m
+  [1m[35m (37.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_last_logout_at_and_last_activity_at" ON "users"  ("last_logout_at", "last_activity_at")[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151204090520"]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlans (20151218115533)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (128.0ms)[0m  [1m[35mCREATE TABLE "plans" ("id" serial primary key, "code" character varying NOT NULL, "title" character varying NOT NULL, "level" float NOT NULL, "form_of_study" integer NOT NULL, "training_period_start" date NOT NULL, "training_period_finish" date NOT NULL, "university_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (37.8ms)[0m  [1m[35mCREATE  INDEX  "index_plans_on_university_id" ON "plans"  ("university_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218115533"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTeachers (20151218121154)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTeachers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (89.7ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" serial primary key, "last_name" character varying(64) NOT NULL, "first_name" character varying(64) NOT NULL, "second_name" character varying(64), "degree" character varying NOT NULL, "rank" character varying NOT NULL, "position" character varying NOT NULL, "b_date" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218121154"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroups (20151218121904)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroups < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (98.1ms)[0m  [1m[35mCREATE TABLE "groups" ("id" serial primary key, "title" character varying NOT NULL, "course" integer NOT NULL, "semester" integer NOT NULL, "data" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_groups_on_title_and_course_and_semester" ON "groups"  ("title", "course", "semester")[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218121904"]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStudents (20151218121913)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateStudents < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (112.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" serial primary key, "last_name" character varying(64) NOT NULL, "first_name" character varying(64) NOT NULL, "second_name" character varying(64), "b_date" date NOT NULL, "passport_id" character varying NOT NULL, "passport_series" integer NOT NULL, "avatar_file_name" character varying, "avatar_content_type" character varying, "avatar_file_size" integer, "avatar_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_passport_id_and_passport_series" ON "students"  ("passport_id", "passport_series")[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218121913"]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMarks (20151218121926)
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMarks < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (118.0ms)[0m  [1m[35mCREATE TABLE "marks" ("id" serial primary key, "mark" integer NOT NULL, "comment" text, "rating_id" integer NOT NULL, "student_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (35.7ms)[0m  [1m[35mCREATE  INDEX  "index_marks_on_rating_id" ON "marks"  ("rating_id")[0m
+  [1m[35m (38.2ms)[0m  [1m[35mCREATE  INDEX  "index_marks_on_student_id" ON "marks"  ("student_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218121926"]]
+  [1m[35m (18.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSubjects (20151218122017)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (90.4ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" serial primary key, "title" character varying NOT NULL, "s_type" character varying NOT NULL, "type_of_reporting" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218122017"]]
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20151218122355)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRatings < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (95.3ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" serial primary key, "title" character varying NOT NULL, "s_type" character varying NOT NULL, "offset" integer NOT NULL, "min_offset" integer NOT NULL, "max_offset" integer NOT NULL, "necessarily" boolean NOT NULL, "subject_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (47.8ms)[0m  [1m[35mCREATE  INDEX  "index_ratings_on_subject_id" ON "ratings"  ("subject_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218122355"]]
+  [1m[35m (16.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePages (20151218122404)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE TABLE "pages" ("id" serial primary key, "visibility" boolean NOT NULL, "header" character varying NOT NULL, "contents" text NOT NULL, "alias" character varying NOT NULL, "subject_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (49.5ms)[0m  [1m[35mCREATE  INDEX  "index_pages_on_subject_id" ON "pages"  ("subject_id")[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218122404"]]
+  [1m[35m (21.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAfiles (20151218122439)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateAfiles < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (108.7ms)[0m  [1m[35mCREATE TABLE "afiles" ("id" serial primary key, "description" text, "file_file_name" character varying, "file_content_type" character varying, "file_file_size" integer, "file_updated_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218122439"]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTalks (20151218122449)
+  [1m[35m (5.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTalks < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE TABLE "talks" ("id" serial primary key, "title" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151218122449"]]
+  [1m[35m (18.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupPlans (20151219065058)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroupPlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (121.9ms)[0m  [1m[35mCREATE TABLE "group_plans" ("id" serial primary key, "group_id" integer, "plan_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4262be2703"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+, CONSTRAINT "fk_rails_f1d44408ce"
+FOREIGN KEY ("plan_id")
+  REFERENCES "plans" ("id")
+) [0m
+  [1m[35m (30.0ms)[0m  [1m[35mCREATE  INDEX  "index_group_plans_on_group_id" ON "group_plans"  ("group_id")[0m
+  [1m[35m (49.1ms)[0m  [1m[35mCREATE  INDEX  "index_group_plans_on_plan_id" ON "group_plans"  ("plan_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151219065058"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTalkUsers (20151219073234)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateTalkUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE TABLE "talk_users" ("id" serial primary key, "user1_id" integer, "user2_id" integer, "talk_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_abf4dcfc1e"
+FOREIGN KEY ("talk_id")
+  REFERENCES "talks" ("id")
+, CONSTRAINT "fk_rails_cb522086f5"
+FOREIGN KEY ("user1_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_420e91bf77"
+FOREIGN KEY ("user2_id")
+  REFERENCES "users" ("id")
+) [0m
+  [1m[35m (41.6ms)[0m  [1m[35mCREATE  INDEX  "index_talk_users_on_user1_id" ON "talk_users"  ("user1_id")[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCREATE  INDEX  "index_talk_users_on_user2_id" ON "talk_users"  ("user2_id")[0m
+  [1m[35m (73.1ms)[0m  [1m[35mCREATE  INDEX  "index_talk_users_on_talk_id" ON "talk_users"  ("talk_id")[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151219073234"]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePagePages (20151219084735)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePagePages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (58.8ms)[0m  [1m[35mCREATE TABLE "page_pages" ("id" serial primary key, "page1_id" integer, "page2_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_98c1c222ef"
+FOREIGN KEY ("page1_id")
+  REFERENCES "pages" ("id")
+, CONSTRAINT "fk_rails_cb6efefd62"
+FOREIGN KEY ("page2_id")
+  REFERENCES "pages" ("id")
+) [0m
+  [1m[35m (60.0ms)[0m  [1m[35mCREATE  INDEX  "index_page_pages_on_page1_id" ON "page_pages"  ("page1_id")[0m
+  [1m[35m (61.1ms)[0m  [1m[35mCREATE  INDEX  "index_page_pages_on_page2_id" ON "page_pages"  ("page2_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151219084735"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePageSubjects (20151219090047)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePageSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (63.5ms)[0m  [1m[35mCREATE TABLE "page_subjects" ("id" serial primary key, "page_id" integer, "subject_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d5aef1c4a7"
+FOREIGN KEY ("page_id")
+  REFERENCES "pages" ("id")
+, CONSTRAINT "fk_rails_44bfb3c424"
+FOREIGN KEY ("subject_id")
+  REFERENCES "subjects" ("id")
+) [0m
+  [1m[35m (43.7ms)[0m  [1m[35mCREATE  INDEX  "index_page_subjects_on_page_id" ON "page_subjects"  ("page_id")[0m
+  [1m[35m (48.8ms)[0m  [1m[35mCREATE  INDEX  "index_page_subjects_on_subject_id" ON "page_subjects"  ("subject_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20151219090047"]]
+  [1m[35m (21.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20160212103449)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMessages < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (86.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" serial primary key, "header" character varying, "text" text, "talk_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_31b249f0e4"
+FOREIGN KEY ("talk_id")
+  REFERENCES "talks" ("id")
+, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) [0m
+  [1m[35m (43.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_talk_id" ON "messages"  ("talk_id")[0m
+  [1m[35m (62.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212103449"]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlanSubjects (20160212183407)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePlanSubjects < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE TABLE "plan_subjects" ("id" serial primary key, "plan_id" integer, "subject_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_733be2e1dd"
+FOREIGN KEY ("plan_id")
+  REFERENCES "plans" ("id")
+, CONSTRAINT "fk_rails_abb44b9718"
+FOREIGN KEY ("subject_id")
+  REFERENCES "subjects" ("id")
+) [0m
+  [1m[35m (42.9ms)[0m  [1m[35mCREATE  INDEX  "index_plan_subjects_on_plan_id" ON "plan_subjects"  ("plan_id")[0m
+  [1m[35m (37.5ms)[0m  [1m[35mCREATE  INDEX  "index_plan_subjects_on_subject_id" ON "plan_subjects"  ("subject_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212183407"]]
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSubjectTeachers (20160212190647)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSubjectTeachers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (48.8ms)[0m  [1m[35mCREATE TABLE "subject_teachers" ("id" serial primary key, "subject_id" integer, "teacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2ce6d40240"
+FOREIGN KEY ("subject_id")
+  REFERENCES "subjects" ("id")
+, CONSTRAINT "fk_rails_ade8d88ee3"
+FOREIGN KEY ("teacher_id")
+  REFERENCES "teachers" ("id")
+) [0m
+  [1m[35m (46.0ms)[0m  [1m[35mCREATE  INDEX  "index_subject_teachers_on_subject_id" ON "subject_teachers"  ("subject_id")[0m
+  [1m[35m (49.4ms)[0m  [1m[35mCREATE  INDEX  "index_subject_teachers_on_teacher_id" ON "subject_teachers"  ("teacher_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212190647"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGroupStudents (20160212192625)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateGroupStudents < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE TABLE "group_students" ("id" serial primary key, "group_id" integer, "student_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e9d4b34b80"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+, CONSTRAINT "fk_rails_d301af853b"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+) [0m
+  [1m[35m (44.1ms)[0m  [1m[35mCREATE  INDEX  "index_group_students_on_group_id" ON "group_students"  ("group_id")[0m
+  [1m[35m (49.2ms)[0m  [1m[35mCREATE  INDEX  "index_group_students_on_student_id" ON "group_students"  ("student_id")[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212192625"]]
+  [1m[35m (11.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessagerUsers (20160212193140)
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateMessagerUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (48.8ms)[0m  [1m[35mCREATE TABLE "messager_users" ("id" serial primary key, "message_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_56469201a4"
+FOREIGN KEY ("message_id")
+  REFERENCES "messages" ("id")
+, CONSTRAINT "fk_rails_683d8f7309"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) [0m
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE  INDEX  "index_messager_users_on_message_id" ON "messager_users"  ("message_id")[0m
+  [1m[35m (47.8ms)[0m  [1m[35mCREATE  INDEX  "index_messager_users_on_user_id" ON "messager_users"  ("user_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212193140"]]
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAfileMessagers (20160212193836)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateAfileMessagers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (64.7ms)[0m  [1m[35mCREATE TABLE "afile_messagers" ("id" serial primary key, "afile_id" integer, "message_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_968adc0332"
+FOREIGN KEY ("afile_id")
+  REFERENCES "afiles" ("id")
+, CONSTRAINT "fk_rails_66e1d359af"
+FOREIGN KEY ("message_id")
+  REFERENCES "messages" ("id")
+) [0m
+  [1m[35m (42.7ms)[0m  [1m[35mCREATE  INDEX  "index_afile_messagers_on_afile_id" ON "afile_messagers"  ("afile_id")[0m
+  [1m[35m (38.9ms)[0m  [1m[35mCREATE  INDEX  "index_afile_messagers_on_message_id" ON "afile_messagers"  ("message_id")[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160212193836"]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUniversities (20160311211144)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateUniversities < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (85.2ms)[0m  [1m[35mCREATE TABLE "universities" ("id" serial primary key, "name" text NOT NULL, "full_name" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_universities_on_name" ON "universities"  ("name")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160311211144"]]
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeTrainingPeriodToPlans (20160319103015)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class ChangeTrainingPeriodToPlans < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE "plans" DROP "training_period_start"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "plans" DROP "training_period_finish"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "plans" ADD "training_period_start" integer NOT NULL[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "plans" ADD "training_period_finish" integer NOT NULL[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160319103015"]]
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToStudent (20160319111036)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddUserIdToStudent < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "students" ADD "user_id" integer[0m
+  [1m[35m (35.1ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_user_id" ON "students"  ("user_id")[0m
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE "students" ADD CONSTRAINT "fk_rails_148c9e88f4"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160319111036"]]
+  [1m[35m (15.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoles (20160326142253)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRoles < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (116.0ms)[0m  [1m[35mCREATE TABLE "roles" ("id" serial primary key, "name" text NOT NULL, "short_name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (41.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_roles_on_short_name" ON "roles"  ("short_name")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160326142253"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoleUsers (20160326142359)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRoleUsers < ActiveRecord::Migration[4.2]. (called from call at /home/natalia/.gem/ruby/2.2.4/gems/rake-11.1.2/lib/rake/task.rb:248)
+  [1m[35m (112.7ms)[0m  [1m[35mCREATE TABLE "role_users" ("id" serial primary key, "user_id" integer NOT NULL, "role_id" integer NOT NULL, "data" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_d225876829"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_d517f3214f"
+FOREIGN KEY ("role_id")
+  REFERENCES "roles" ("id")
+) [0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE  INDEX  "index_role_users_on_user_id" ON "role_users"  ("user_id")[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE  INDEX  "index_role_users_on_role_id" ON "role_users"  ("role_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160326142359"]]
+  [1m[35m (14.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (49.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" ORDER BY "ar_internal_metadata"."key" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8631065087834146755)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (17.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afile_messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (19.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'delayed_jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'groups'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'marks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messager_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (17.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ratings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'role_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (24.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'specialties'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subject_teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (18.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talk_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (18.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'universities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (20.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'versions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bolonka94@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "crypted_password", "salt", "created_at", "updated_at", "activation_state", "activation_token") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "bolonka94@gmail.com"], ["crypted_password", "$2a$10$iSWO0xfDSzNu1QV8jS3RCOtDu4o09.lxbCx79QaZCdVqhX.ljGTny"], ["salt", "FnqhzoxrdJ1n5yMyWpB7"], ["created_at", 2016-05-07 08:06:24 UTC], ["updated_at", 2016-05-07 08:06:24 UTC], ["activation_state", "pending"], ["activation_token", "3D7yzgN73yh4bUc1sT7B"]]
+  Rendered user_mailer/activation_needed_email.html.haml within layouts/mailer (10.3ms)
+  Rendered user_mailer/activation_needed_email.text.haml within layouts/mailer (4.8ms)
+UserMailer#activation_needed_email: processed outbound mail in 859.4ms
+Sent mail to bolonka94@gmail.com (54.6ms)
+Date: Sat, 07 May 2016 11:06:25 +0300
+From: from@example.com
+To: bolonka94@gmail.com
+Message-ID: <572da2011451_1b0023a6f318506bc@pc.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_572da200ed178_1b0023a6f318505c8";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_572da200ed178_1b0023a6f318505c8
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com,
+bolonka94@gmail.com
+You have successfully signed up to example.com,
+your username is:
+bolonka94@gmail.com.
+To login to the site, just follow this link:
+http://localhost:3000/users/3D7yzgN73yh4bUc1sT7B/activate.
+Thanks for joining and have a great day!
+
+----==_mimepart_572da200ed178_1b0023a6f318505c8
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<hmtl>
+  <body>
+    Welcome to example.com,
+    bolonka94@gmail.com
+    You have successfully signed up to example.com,
+    your username is:
+    bolonka94@gmail.com.
+    To login to the site, just follow this link:
+    http://localhost:3000/users/3D7yzgN73yh4bUc1sT7B/activate.
+    Thanks for joining and have a great day!
+  </body>
+</hmtl>
+
+----==_mimepart_572da200ed178_1b0023a6f318505c8--
+
+  [1m[35m (22.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "activation_state" = $2 WHERE "users"."id" = $3[0m  [["updated_at", 2016-05-07 08:06:25 UTC], ["activation_state", "active"], ["id", 1]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "short_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Преподаватель"], ["short_name", "Преподаватель"], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "short_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Администратор"], ["short_name", "Админ"], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "roles" ("name", "short_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Студент"], ["short_name", "Студент"], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  [1m[32mINSERT INTO "role_users" ("user_id", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["role_id", 1], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "role_users" ("user_id", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["role_id", 2], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "role_users" ("user_id", "role_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["role_id", 3], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (11.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "universities" ("name", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "МАМИ"], ["full_name", "Московский государственный машиностроительный университет"], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "universities" ("name", "full_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "МГИУ"], ["full_name", "Московский государственный индустриальный университет"], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "teachers" ("last_name", "first_name", "second_name", "degree", "rank", "position", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["last_name", "Белова"], ["first_name", "Ирина"], ["second_name", "Михайловна"], ["degree", "к.т.н."], ["rank", "Доцент"], ["position", "Заведующая кафедрой"], ["b_date", Mon, 16 Mar 1953], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "teachers" ("last_name", "first_name", "second_name", "degree", "rank", "position", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["last_name", "Иванова"], ["first_name", "Елена"], ["second_name", "Михайловна"], ["degree", "-"], ["rank", "-"], ["position", "Старший преподаватель"], ["b_date", Sun, 23 Jul 1989], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "teachers" ("last_name", "first_name", "second_name", "degree", "rank", "position", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["last_name", "Мурзаев"], ["first_name", "Григорий"], ["second_name", "Дмитриевич"], ["degree", "к.т.н."], ["rank", "Доцент"], ["position", "Старший преподаватель"], ["b_date", Sat, 03 May 1980], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "teachers" ("last_name", "first_name", "second_name", "degree", "rank", "position", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["last_name", "Петров"], ["first_name", "Денис"], ["second_name", "Сергеевич"], ["degree", "-"], ["rank", "-"], ["position", "Преподаватель"], ["b_date", Sat, 29 Jul 1972], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "teachers" ("last_name", "first_name", "second_name", "degree", "rank", "position", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["last_name", "Александрова"], ["first_name", "Нина"], ["second_name", "Григорьевна"], ["degree", "-"], ["rank", "-"], ["position", "Ассистент"], ["b_date", Mon, 09 Oct 1989], ["created_at", 2016-05-07 08:06:25 UTC], ["updated_at", 2016-05-07 08:06:25 UTC]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStudent Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "students" WHERE "students"."passport_series" IS NULL AND "students"."passport_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStudent Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "students" WHERE "students"."passport_series" IS NULL AND "students"."passport_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStudent Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "students" WHERE "students"."passport_series" IS NULL AND "students"."passport_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStudent Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "students" WHERE "students"."passport_series" IS NULL AND "students"."passport_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStudent Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "students" WHERE "students"."passport_series" IS NULL AND "students"."passport_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "121131"], ["course", 4], ["semester", 8], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (20.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "7-ОЗПНнс-3"], ["course", 4], ["semester", 8], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "5-ОЗИВТн-4"], ["course", 3], ["semester", 6], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "9-ЗУТСн"], ["course", 5], ["semester", 10], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "121232"], ["course", 3], ["semester", 6], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "subjects" ("title", "s_type", "type_of_reporting", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Математический анализ"], ["s_type", "Лекции"], ["type_of_reporting", 0], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "subjects" ("title", "s_type", "type_of_reporting", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Алгебра и начало анализа"], ["s_type", "Семенар"], ["type_of_reporting", 0], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (12.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "subjects" ("title", "s_type", "type_of_reporting", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Компьютерная графика"], ["s_type", "Семинар"], ["type_of_reporting", 1], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (12.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "subjects" ("title", "s_type", "type_of_reporting", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Веб-технологии"], ["s_type", "Семинар"], ["type_of_reporting", 0], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "subjects" ("title", "s_type", "type_of_reporting", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Программирование"], ["s_type", "Лекции"], ["type_of_reporting", 3], ["created_at", 2016-05-07 08:06:28 UTC], ["updated_at", 2016-05-07 08:06:28 UTC]]
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from instance_exec at /home/natalia/.gem/ruby/2.2.4/gems/railties-5.0.0.beta3/lib/rails/initializable.rb:30)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks/xhr_url_for.rb:7)
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:14)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from block (3 levels) in <class:Engine> at /home/natalia/.gem/ruby/2.2.4/gems/turbolinks-2.5.3/lib/turbolinks.rb:15)
+DEPRECATION WARNING: prepend_before_filter is deprecated and will be removed in Rails 5.1. Use prepend_before_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/session_timeout.rb:24)
+DEPRECATION WARNING: after_filter is deprecated and will be removed in Rails 5.1. Use after_action instead. (called from included at /home/natalia/.gem/ruby/2.2.4/gems/sorcery-0.9.1/lib/sorcery/controller/submodules/activity_logging.rb:37)
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:06:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.6ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.9ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  Rendered plans/index.html.haml within layouts/application (73.2ms)
+  [1m[36mUniversity Load (3.8ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (414.4ms)
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (275.7ms)
+  Rendered application/_flash_messages.html.haml (5.8ms)
+  [1m[35mSQL (19.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:06:56.906289' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 8001ms (Views: 6992.5ms | ActiveRecord: 111.5ms)
+
+
+Started GET "/assets/theme.self-724107ed571d2ffd7c184ccba46ab91918fc497f28f2a915b831436a727fc324.css?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/application.self-34460ac65147ed50a91ccc42616cd907401a6235d0f73769fc74d6f1a397c43a.css?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:57 +0300
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/bootstrap-datetimepicker.self-f4c780e77f9e34c90cc43fc2a2bc2d2f11d5b54470904990480fc9cb434d918c.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/moment/ru.self-5ffb62cd54845c383819bda33f7905add47563617bebdac9bc6d704e3d5af040.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/bootstrap-select/bootstrap-select.min.self-db98bbf21f44a609e8a6275c1c2fd04207587621ad7dd637c62b0ca0a7868038.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/bootstrap-select/defaults-ru_RU.self-a0230e44b6262351bdb7e8cc6623f065a2b44362bed5cce0f36eb557ce709902.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:58 +0300
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/main.self-d181aae9dfefbfb9818801ef4c296b74b5e6c0c532933b09b918ab7c5a1f99a9.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/role_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:06:59 +0300
+Started GET "/assets/roles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/universities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/application.self-b5567fb0cb73f9d4ecd4fa178bbc995d9efe2b53da5e5bf4ca587adb307de5b1.js?body=1" for 127.0.0.1 at 2016-05-07 11:07:00 +0300
+Started GET "/assets/pica-0efe9b2925479ca67deb6cafe1a207f4bfb3088602ad479fc4d3b644d485dc98.gif" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/assets/open_sans_light-09fd48874849a3dfa4a496483dd50687a91062ed0f57c9f00d3b73a394f50337.woff" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/assets/fontawesome-webfont-d3ebb498192527b985939ae62cc4e5eb5c108efc1896184126b45d866868e73d.woff2?v=4.6.1" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-05-07 11:07:01 +0300
+Started GET "/plans/new" for 127.0.0.1 at 2016-05-07 11:07:08 +0300
+Processing by PlansController#new as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (6.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (12.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  Rendered plans/_form.html.haml (532.9ms)
+  Rendered plans/new.html.haml within layouts/application (550.5ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (122.5ms)
+  [1m[36mStudent Load (3.7ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (81.1ms)
+  Rendered application/_flash_messages.html.haml (4.6ms)
+  [1m[35mSQL (18.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:10.156885' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1966ms (Views: 1728.5ms | ActiveRecord: 96.4ms)
+
+
+Started GET "/plans/add_one_more?i=0" for 127.0.0.1 at 2016-05-07 11:07:30 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"0"}
+  [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.0ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.1ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (5.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (29.5ms)
+  Rendered plans/add_one_more.js.coffee (327.3ms)
+  [1m[35mSQL (24.4ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:30.715877' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 567ms (Views: 371.0ms | ActiveRecord: 69.2ms)
+
+
+Started POST "/plans" for 127.0.0.1 at 2016-05-07 11:07:42 +0300
+Processing by PlansController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fXIePt87b7t51f5NSzrMwfc72BrbEBCVF0pUFuLAVZ0YksAlEFacKaqT09MdhOydILlXMGKBE/vCQfvafkIdOg==", "plan"=>{"code"=>"1", "title"=>"name", "level"=>"2", "form_of_study"=>"0", "training_period_start"=>"3", "training_period_finish"=>"9", "university_id"=>"1"}, "subject"=>["2"], "button"=>""}
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (7.1ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (5.2ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 LIMIT $2[0m  [["code", "1"], ["LIMIT", 1]]
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "plans" ("code", "title", "level", "form_of_study", "university_id", "created_at", "updated_at", "training_period_start", "training_period_finish") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["code", "1"], ["title", "name"], ["level", 2.0], ["form_of_study", 0], ["university_id", 1], ["created_at", 2016-05-07 08:07:42 UTC], ["updated_at", 2016-05-07 08:07:42 UTC], ["training_period_start", 3], ["training_period_finish", 9]]
+  [1m[35m (21.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[33mUPDATE "group_plans" SET "plan_id" = NULL WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.0ms)[0m  [1m[32mINSERT INTO "group_plans" ("group_id", "plan_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 2], ["plan_id", 1], ["created_at", 2016-05-07 08:07:42 UTC], ["updated_at", 2016-05-07 08:07:42 UTC]]
+  [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (9.8ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/plans/1
+  [1m[35mSQL (61.4ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:42.468123' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 442ms (ActiveRecord: 184.2ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 11:07:42 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (4.6ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.4ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (2.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (2.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (179.0ms)
+  [1m[36mUniversity Load (6.7ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (185.4ms)
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (99.6ms)
+  Rendered application/_flash_messages.html.haml (5.1ms)
+  [1m[35mSQL (20.3ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:44.308662' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1718ms (Views: 1582.2ms | ActiveRecord: 74.8ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 11:07:49 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (8.1ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.3ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.3ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (10.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.4ms)
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (3.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (4.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (2.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (381.6ms)
+  Rendered plans/edit.html.haml within layouts/application (402.4ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (7.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (134.1ms)
+  [1m[36mStudent Load (1.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (78.3ms)
+  Rendered application/_flash_messages.html.haml (5.4ms)
+  [1m[35mSQL (25.8ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:51.191529' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1961ms (Views: 1819.4ms | ActiveRecord: 68.0ms)
+
+
+Started GET "/plans/add_one_more?i=0" for 127.0.0.1 at 2016-05-07 11:07:55 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"0"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (2.5ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (34.5ms)
+  Rendered plans/add_one_more.js.coffee (149.4ms)
+  [1m[35mSQL (18.2ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:55.533507' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 284ms (Views: 193.8ms | ActiveRecord: 24.3ms)
+
+
+Started PATCH "/plans/1" for 127.0.0.1 at 2016-05-07 11:07:57 +0300
+Processing by PlansController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q/GqBX0tx04QuboeCyu/CY85PY05sD4rXddV928Dr1MmEXQeskA03MP/l4BdlZ9VWLuyp4AhPUWI3Po784Hn9A==", "plan"=>{"code"=>"1", "title"=>"name", "level"=>"2.0", "form_of_study"=>"0", "training_period_start"=>"3", "training_period_finish"=>"9", "university_id"=>"1"}, "subject"=>["2"], "group"=>["2"], "button"=>"", "id"=>"1"}
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.2ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.5ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (13.9ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "plan_subjects" SET "plan_id" = NULL WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.1ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 08:07:57 UTC], ["updated_at", 2016-05-07 08:07:57 UTC]]
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (8.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/plans/1
+  [1m[35mSQL (12.8ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:57.935130' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 384ms (ActiveRecord: 131.3ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 11:07:57 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.1ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (3.1ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (0.9ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (1.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (2.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (71.9ms)
+  [1m[36mUniversity Load (2.2ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (3.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (141.7ms)
+  [1m[36mStudent Load (4.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (91.4ms)
+  Rendered application/_flash_messages.html.haml (5.3ms)
+  [1m[35mSQL (25.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:07:59.582668' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1557ms (Views: 1444.9ms | ActiveRecord: 59.2ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:08:08 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.3ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (3.4ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.9ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (1.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (12.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (154.9ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (7.9ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (118.9ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (74.8ms)
+  Rendered application/_flash_messages.html.haml (5.1ms)
+  [1m[35mSQL (18.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:08:10.334579' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1448ms (Views: 1319.4ms | ActiveRecord: 52.8ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at 2016-05-07 11:09:40 +0300
+Processing by SubjectsController#index as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.1ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (8.5ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (5.8ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  Rendered subjects/index.html.haml within layouts/application (118.4ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (7.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (133.1ms)
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (87.9ms)
+  Rendered application/_flash_messages.html.haml (5.6ms)
+  [1m[35mSQL (23.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:09:42.110921' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1670ms (Views: 1537.8ms | ActiveRecord: 55.5ms)
+
+
+Started GET "/subjects/1" for 127.0.0.1 at 2016-05-07 11:09:44 +0300
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (5.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.1ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.8ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeacher Load (4.8ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" INNER JOIN "subject_teachers" ON "teachers"."id" = "subject_teachers"."teacher_id" WHERE "subject_teachers"."subject_id" = $1[0m  [["subject_id", 1]]
+  [1m[36mPage Load (3.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" INNER JOIN "page_subjects" ON "pages"."id" = "page_subjects"."page_id" WHERE "page_subjects"."subject_id" = $1 ORDER BY "pages"."id" ASC LIMIT $2[0m  [["subject_id", 1], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pages" INNER JOIN "page_subjects" ON "pages"."id" = "page_subjects"."page_id" WHERE "page_subjects"."subject_id" = $1[0m  [["subject_id", 1]]
+  Rendered subjects/show_for_students.html.haml within layouts/application (301.2ms)
+  [1m[36mUniversity Load (1.7ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (112.5ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (79.5ms)
+  Rendered application/_flash_messages.html.haml (5.7ms)
+  [1m[35mSQL (17.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:09:46.506817' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1563ms (Views: 1407.9ms | ActiveRecord: 82.3ms)
+
+
+Started GET "/teachers" for 127.0.0.1 at 2016-05-07 11:09:53 +0300
+Processing by TeachersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (2.1ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (4.1ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTeacher Load (2.7ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  Rendered teachers/index.html.haml within layouts/application (164.0ms)
+  [1m[36mUniversity Load (2.5ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (7.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (120.8ms)
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (86.9ms)
+  Rendered application/_flash_messages.html.haml (5.8ms)
+  [1m[35mSQL (25.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:09:55.470401' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1527ms (Views: 1381.8ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:10:45 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (6.0ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (3.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (1.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (156.9ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (117.6ms)
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (87.3ms)
+  Rendered application/_flash_messages.html.haml (6.9ms)
+  [1m[35mSQL (26.3ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:10:47.262342' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1477ms (Views: 1303.4ms | ActiveRecord: 47.3ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 11:10:52 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (3.2ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (2.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.5ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 11:10:52 +0300
+  [1m[36mGroup Load (56.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (13.8ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mUser Load (15.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered plans/show.html.haml within layouts/application (217.8ms)
+  [1m[36mRoleUser Load (20.6ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (16.2ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (8.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (3.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (121.0ms)
+  [1m[36mUniversity Load (10.6ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (17.7ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (162.9ms)
+  [1m[36mStudent Load (10.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (105.0ms)
+  Rendered application/_flash_messages.html.haml (4.8ms)
+  [1m[36mUniversity Load (7.7ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (7.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (3.5ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  [1m[35mSQL (43.9ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:10:54.919119' WHERE "users"."id" = $1[0m  [["id", 1]]
+  Rendered application/_navbar_top.html.haml (145.3ms)
+Completed 200 OK in 2770ms (Views: 2491.7ms | ActiveRecord: 171.4ms)
+
+
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (78.8ms)
+  Rendered application/_flash_messages.html.haml (4.9ms)
+  [1m[35mSQL (37.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:10:55.118562' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 2637ms (Views: 2302.7ms | ActiveRecord: 120.9ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 11:11:50 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.6ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (3.1ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (7.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.6ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (2.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (1.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mGroup Load (2.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (336.3ms)
+  Rendered plans/edit.html.haml within layouts/application (355.1ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.5ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (137.2ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (76.6ms)
+  Rendered application/_flash_messages.html.haml (5.3ms)
+  [1m[35mSQL (23.9ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:11:52.702006' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1666ms (Views: 1526.2ms | ActiveRecord: 51.1ms)
+
+
+Started GET "/groups/new?i=0" for 127.0.0.1 at 2016-05-07 11:11:59 +0300
+Processing by GroupsController#new as JS
+  Parameters: {"i"=>"0"}
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered groups/_add_group_form.html.haml (42.5ms)
+  Rendered groups/new.js.coffee (94.9ms)
+  [1m[35mSQL (16.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:00.209450' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 281ms (Views: 146.3ms | ActiveRecord: 27.9ms)
+
+
+Started POST "/groups" for 127.0.0.1 at 2016-05-07 11:12:10 +0300
+Processing by GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QrckQw0lWPo0+sDiiOW4aCoU4HAi8EXh7kcHGGZLPEMnV/pYwkiraOe87XzeW5g0/ZZvWpthRo87TKjU+sl05A==", "group"=>{"title"=>"22", "course"=>"2", "semester"=>"2"}, "commit"=>"Внести в список"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (7.7ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "22"], ["course", 2], ["semester", 2], ["created_at", 2016-05-07 08:12:10 UTC], ["updated_at", 2016-05-07 08:12:10 UTC]]
+  [1m[35m (70.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/groups/6
+  [1m[35mSQL (7.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:10.444624' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 210ms (ActiveRecord: 95.1ms)
+
+
+Started GET "/groups/6" for 127.0.0.1 at 2016-05-07 11:12:10 +0300
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.8ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (8.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mStudent Load (8.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "group_students" ON "students"."id" = "group_students"."student_id" WHERE "group_students"."group_id" = $1[0m  [["group_id", 6]]
+  Rendered groups/show.html.haml within layouts/application (160.7ms)
+  [1m[36mUniversity Load (1.2ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (136.1ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (88.6ms)
+  Rendered application/_flash_messages.html.haml (8.1ms)
+  [1m[35mSQL (25.2ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:12.356477' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1876ms (Views: 1762.4ms | ActiveRecord: 65.4ms)
+
+
+Started GET "/plans" for 127.0.0.1 at 2016-05-07 11:12:19 +0300
+Processing by PlansController#index as HTML
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (11.4ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (1.4ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (5.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  [1m[36mGroup Load (3.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (5.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/index.html.haml within layouts/application (151.4ms)
+  [1m[36mUniversity Load (1.0ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (8.1ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (111.1ms)
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (84.7ms)
+  Rendered application/_flash_messages.html.haml (4.8ms)
+  [1m[35mSQL (20.4ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:21.423023' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1410ms (Views: 1288.0ms | ActiveRecord: 63.0ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 11:12:26 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (3.5ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (1.7ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (14.0ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (3.1ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (4.8ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (2.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (0.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mGroup Load (1.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (1.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (414.9ms)
+  Rendered plans/edit.html.haml within layouts/application (437.0ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (126.3ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (72.3ms)
+  Rendered application/_flash_messages.html.haml (8.2ms)
+  [1m[35mSQL (25.0ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:28.580858' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 2007ms (Views: 1858.5ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/plans/add_one_more?i=1" for 127.0.0.1 at 2016-05-07 11:12:35 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"1"}
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.8ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (5.9ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (1.9ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (39.7ms)
+  Rendered plans/add_one_more.js.coffee (104.1ms)
+  [1m[35mSQL (19.8ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:35.455793' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 248ms (Views: 154.0ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/plans/add_one_more?i=2" for 127.0.0.1 at 2016-05-07 11:12:38 +0300
+Processing by PlansController#add_one_more as JS
+  Parameters: {"i"=>"2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (7.6ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  Rendered subjects/_one_subject.html.haml (33.9ms)
+  Rendered plans/add_one_more.js.coffee (118.3ms)
+  [1m[35mSQL (27.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:38.458009' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 279ms (Views: 168.0ms | ActiveRecord: 39.6ms)
+
+
+Started PATCH "/plans/1" for 127.0.0.1 at 2016-05-07 11:12:42 +0300
+Processing by PlansController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/mzNM1YaHp7R+jLSZRbP1fJhEXk49duhzbibgT5BacabjBMomXftDAK8H0wzqO+JJeOeU4Fk2M8YszRNosMhYQ==", "plan"=>{"code"=>"1", "title"=>"name", "level"=>"2.0", "form_of_study"=>"0", "training_period_start"=>"3", "training_period_finish"=>"9", "university_id"=>"1"}, "subject"=>["2", "2", "2"], "group"=>["2"], "button"=>"", "id"=>"1"}
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (8.0ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.8ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (2.8ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (6.5ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (28.0ms)[0m  [1m[33mUPDATE "plan_subjects" SET "plan_id" = NULL WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 08:12:42 UTC], ["updated_at", 2016-05-07 08:12:42 UTC]]
+  [1m[35m (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 08:12:42 UTC], ["updated_at", 2016-05-07 08:12:42 UTC]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "plan_subjects" ("plan_id", "subject_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["plan_id", 1], ["subject_id", 2], ["created_at", 2016-05-07 08:12:42 UTC], ["updated_at", 2016-05-07 08:12:42 UTC]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPlan Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM "plans" WHERE "plans"."code" = $1 AND ("plans"."id" != $2) LIMIT $3[0m  [["code", "1"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/plans/1
+  [1m[35mSQL (11.1ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:42.678634' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 302 Found in 385ms (ActiveRecord: 129.3ms)
+
+
+Started GET "/plans/1" for 127.0.0.1 at 2016-05-07 11:12:42 +0300
+Processing by PlansController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (0.9ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (0.8ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGroup Load (1.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (1.8ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  Rendered plans/show.html.haml within layouts/application (87.6ms)
+  [1m[36mUniversity Load (1.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (156.6ms)
+  [1m[36mStudent Load (1.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (87.6ms)
+  Rendered application/_flash_messages.html.haml (7.7ms)
+  [1m[35mSQL (18.9ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:44.270603' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 1534ms (Views: 1440.5ms | ActiveRecord: 31.3ms)
+
+
+Started GET "/plans/1/edit" for 127.0.0.1 at 2016-05-07 11:12:49 +0300
+Processing by PlansController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoleUser Load (1.8ms)[0m  [1m[34mSELECT  "role_users".* FROM "role_users" WHERE "role_users"."user_id" = $1 AND "role_users"."id" = $2 ORDER BY "role_users"."id" ASC LIMIT $3[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUniversity Load (3.2ms)[0m  [1m[34mSELECT  "universities".* FROM "universities" ORDER BY "universities"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPlan Load (4.8ms)[0m  [1m[34mSELECT  "plans".* FROM "plans" WHERE "plans"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered application/_error_messages_for_attr.html.haml (11.9ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (1.1ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  [1m[36mUniversity Load (0.9ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mSubject Load (1.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "plan_subjects" ON "subjects"."id" = "plan_subjects"."subject_id" WHERE "plan_subjects"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" ORDER BY "subjects"."title" ASC[0m
+  [1m[36mGroup Load (1.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups" INNER JOIN "group_plans" ON "groups"."id" = "group_plans"."group_id" WHERE "group_plans"."plan_id" = $1[0m  [["plan_id", 1]]
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" ORDER BY "groups"."title" ASC[0m
+  Rendered plans/_form.html.haml (390.2ms)
+  Rendered plans/edit.html.haml within layouts/application (425.0ms)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT "universities".* FROM "universities" ORDER BY "universities"."name" ASC[0m
+  [1m[36mRole Load (2.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (9.4ms)[0m  [1m[34mSELECT "role_users"."id" AS t0_r0, "role_users"."user_id" AS t0_r1, "role_users"."role_id" AS t0_r2, "role_users"."data" AS t0_r3, "role_users"."created_at" AS t0_r4, "role_users"."updated_at" AS t0_r5, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."short_name" AS t1_r2, "roles"."created_at" AS t1_r3, "roles"."updated_at" AS t1_r4 FROM "role_users" LEFT OUTER JOIN "roles" ON "roles"."id" = "role_users"."role_id" WHERE "role_users"."user_id" = $1 ORDER BY roles.name[0m  [["user_id", 1]]
+  Rendered application/_navbar_top.html.haml (234.2ms)
+  [1m[36mStudent Load (2.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  Rendered application/_sidebar.html.haml (161.1ms)
+  Rendered application/_flash_messages.html.haml (10.5ms)
+  [1m[35mSQL (18.6ms)[0m  [1m[33mUPDATE "users" SET "last_activity_at" = '2016-05-07 08:12:52.014179' WHERE "users"."id" = $1[0m  [["id", 1]]
+Completed 200 OK in 2131ms (Views: 2001.0ms | ActiveRecord: 56.2ms)
+
+

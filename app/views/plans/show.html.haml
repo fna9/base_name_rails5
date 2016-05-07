@@ -17,7 +17,8 @@
   
 %p
   %b Форма обучения:
-  = @plan.form_of_study
+  = Plan::FTYPES[@plan.form_of_study]
+  
 
 %p
   %b Сроки обучения (начало обучения):

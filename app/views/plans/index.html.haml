@@ -18,7 +18,7 @@
         %td= plan.code
         %td= plan.title
         %td= plan.level
-        %td= plan.form_of_study
+        %td= Plan::FTYPES[plan.form_of_study]
         %td= plan.training_period_start 
         %td= plan.training_period_finish
         %td= raw(plan.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
