@@ -6,15 +6,15 @@
     .col-md-8
       .form-group
         *
-        =f.label :name
-        =f.text_field(:name, class: 'form-control', :placeholder => "Наименование (полностью)")
+        =f.label :full_name
+        =f.text_field(:full_name, class: 'form-control', :placeholder => "Наименование (полностью)")
         
   .row
     .col-md-8
       .form-group
         *
-        =f.label :full_name
-        =f.text_field(:full_name, class: 'form-control', :placeholder => "Наименование (сокращенное)")
+        =f.label :name
+        =f.text_field(:name, class: 'form-control', :placeholder => "Наименование (сокращенное)")
         
 
   .h5 * - поля обязательные для заполнения!
