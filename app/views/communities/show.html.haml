@@ -1,0 +1,32 @@
+%h1= @community.name 
+
+%ul.nav.nav-tabs
+  %li.active
+    =link_to("#main", data: {toggle: :tab}) do
+      Главная страница
+  %li.passive
+    =link_to("#all", data: {toggle: :tab}) do
+      Все страницы
+  %li.passive
+    =link_to("#people", data: {toggle: :tab}) do
+      Участники
+.tab-content
+  .tab-pane.active#main
+    .panel.panel-primary.notop
+      .panel-body
+        -mpage=@community.get_main_page.try(:page)
+        -if mpage.present?
+          %h2= mpage.header
+          %div 
+            =raw(mpage.contents)
+  .tab-pane.passive#all
+    .panel.panel-primary.notop
+      .panel-body
+        .list-group
+          -@community.community_pages.each do |cp|
+            =link_to(cp.page.header, cp.page, class: 'list-group-item')
+  .tab-pane.passive#people
+    .panel.panel-primary.notop
+      .panel-body
+        Участники
+        

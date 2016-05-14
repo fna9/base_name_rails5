@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :community_pages
+  resources :community_users
   resources :role_users
   resources :roles
   resources :universities
@@ -34,6 +36,13 @@ Rails.application.routes.draw do
       get :add_one_more
     end
   end
+  
+  resources :communities do 
+    collection do
+      get :my_index
+    end
+  end
+  
   resources :password_resets
 
   get 'welcome/index', as: :welcome

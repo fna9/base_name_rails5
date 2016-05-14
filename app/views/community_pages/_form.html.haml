@@ -1,0 +1,19 @@
+= form_for @community_page do |f|
+  - if @community_page.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@community_page.errors.count, "error")} prohibited this community_page from being saved:"
+      %ul
+        - @community_page.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :page_id
+    = f.text_field :page_id
+  .field
+    = f.label :community_id
+    = f.text_field :community_id
+  .field
+    = f.label :ismain
+    = f.check_box :ismain
+  .actions
+    = f.submit 'Save'

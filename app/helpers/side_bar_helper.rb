@@ -157,32 +157,20 @@ module SideBarHelper
 
       
     elsif ru.is_teacher?
-      result << {
-      :name => 'Учебные группы',
-      :icon => 'sitemap',
-      :children => [
-      {:name => 'Учебная группа по плану',
-       :controller => :groups, :action => :index,
-       :icon => 'file-text-o'},
-      {:name => 'Все учебные группы',
-       :controller => :groups, :action => :index,
-       :icon => 'search',
-       :class => 'long'}
-      ]}
-
+    
       result << {
         :name => 'Сообщества',
         :icon => 'university',
         :children => [
-        {:name => 'Ваши сообщества',
-         :controller => :groups, :action => :index,
+        {:name => 'Мои сообщества',
+         :controller => :communities, :action => :my_index,
          :icon => 'file-text-o'},
         {:name => 'Все сообщества',
-         :controller => :groups, :action => :index,
+         :controller => :communities, :action => :index,
          :icon => 'search',
          :class => 'long'}
-      ]}   
-
+      ]}  
+      
       result << {
         :name => 'Сообщения',
         :icon => 'comment',
@@ -193,36 +181,43 @@ module SideBarHelper
         {:name => 'Все разговоры',
          :controller => :talks, :action => :index,
          :icon => 'comments',
-         :class =>'long'}
+         :class =>'long'},
+        {:name => 'Поиск',
+         :controller => :messages, :action => :index,
+         :icon => 'search'},
       ]} 
-
+      
+   
       result << {
-        :name => 'Предметы',
-        :icon => 'comment',
-        :children => [
-        {:name => '?',
-         :controller => :subjects, :action => :index,
-         :icon => 'envelope'},
-        {:name => 'Все дисциплины',
-         :controller => :subjects, :action => :index,
-         :icon => 'comments',
-         :class =>'long'}
+      :name => 'Учебная информация',
+      :icon => 'sitemap',
+      :children => [
+      {:name => 'Мои учебные группы',
+       :controller => :groups, :action => :index,
+       :icon => 'file-text-o'},
+      {:name => 'Все учебные группы',
+       :controller => :groups, :action => :index,
+       :icon => 'search',
+       :class => 'long'},
+      {:name => 'Ваши дисциплины',
+       :controller => :subjects, :action => :index,
+       :icon => 'envelope'},
+      {:name => 'Все дисциплины',
+       :controller => :subjects, :action => :index,
+       :icon => 'comments',
+       :class =>'long'},
+      {:name => 'Учебный план',
+       :icon => 'clone',
+       :controller => :plans,
+       :action => :index}
       ]}
 
       result << {
-        :name => 'Учебный план',
-        :icon => 'clone',
-        :controller => :plans,
-        :action => :index
-      }
-
-      result << {
-        :name => 'Настройки',
+        :name => 'Личный кабинет',
         :icon => 'cogs',
         :controller => :universities, 
         :action => :index
       }
-
 
 
     elsif ru.is_student?

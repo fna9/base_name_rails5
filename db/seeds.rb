@@ -6,11 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u = User.find_by_email("bolonka94@gmail.com")
-if u.blank?
-  u = User.create(email: "bolonka94@gmail.com", password: "123", password_confirmation: "123")
-  u.activation_state = 'active'
-  u.save
+u1 = User.find_by_email("bolonka94@gmail.com")
+if u1.blank?
+  u1 = User.create(email: "bolonka94@gmail.com", password: "123", password_confirmation: "123")
+  u1.activation_state = 'active'
+  u1.save
+end
+
+u2 = User.find_by_email("bolonka94@mail.ru")
+if u2.blank?
+  u2 = User.create(email: "bolonka94@mail.ru", password: "321", password_confirmation: "321")
+  u2.activation_state = 'active'
+  u2.save
 end
 
 r1 = Role.create(name: 'Преподаватель', short_name: 'Преподаватель')
@@ -19,10 +26,11 @@ r2 = Role.create(name: 'Администратор', short_name: 'Админ')
 
 r3 = Role.create(name: 'Студент', short_name: 'Студент')
 
-RoleUser.create(role: r1, user: u)
-RoleUser.create(role: r2, user: u)
-RoleUser.create(role: r3, user: u)
+RoleUser.create(role: r1, user: u1)
+RoleUser.create(role: r2, user: u1)
+RoleUser.create(role: r3, user: u1)
 
+RoleUser.create(role: r3, user: u2)
 
 uni1 = University.create(name: 'МАМИ', full_name: "Московский государственный машиностроительный университет")
 uni2 = University.create(name: 'МГИУ', full_name: "Московский государственный индустриальный университет")

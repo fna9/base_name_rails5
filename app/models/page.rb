@@ -1,6 +1,7 @@
 class Page < ActiveRecord::Base
 
-
+  has_many :community_pages
+  
 	has_many :page_subjects
 	has_many :subjects, through: :page_subjects
 	

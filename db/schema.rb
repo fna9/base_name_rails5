@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326142359) do
+ActiveRecord::Schema.define(version: 20160514102834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,34 @@ ActiveRecord::Schema.define(version: 20160326142359) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  create_table "communities", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "community_pages", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "community_id"
+    t.boolean  "ismain"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "community_pages", ["community_id"], name: "index_community_pages_on_community_id", using: :btree
+  add_index "community_pages", ["page_id"], name: "index_community_pages_on_page_id", using: :btree
+
+  create_table "community_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
+    t.integer  "typeuser"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "community_users", ["community_id"], name: "index_community_users_on_community_id", using: :btree
+  add_index "community_users", ["user_id"], name: "index_community_users_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -337,6 +365,10 @@ ActiveRecord::Schema.define(version: 20160326142359) do
 
   add_foreign_key "afile_messagers", "afiles"
   add_foreign_key "afile_messagers", "messages"
+  add_foreign_key "community_pages", "communities"
+  add_foreign_key "community_pages", "pages"
+  add_foreign_key "community_users", "communities"
+  add_foreign_key "community_users", "users"
   add_foreign_key "group_plans", "groups"
   add_foreign_key "group_plans", "plans"
   add_foreign_key "group_students", "groups"

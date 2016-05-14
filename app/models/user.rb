@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_one :student
   
+  has_many :community_users
+  
   has_many :role_users
 
   validates :password, length: {minimum: 3}, confirmation: true,

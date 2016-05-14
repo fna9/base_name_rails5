@@ -32,6 +32,7 @@ ru:
       message: Сообщение
       afile: Файл
       university: Учебное заведение
+      community: Сообщества
     attributes:
       syllabus:
         code: Код
@@ -106,6 +107,8 @@ ru:
         university_id: Учебное заведение
         subjects: Дисциплины
         groups: Учебные группы
+      community:
+        name: Название
     errors:
       models:
         person:

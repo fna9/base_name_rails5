@@ -1,0 +1,25 @@
+%h1 Listing community_pages
+
+%table
+  %thead
+    %tr
+      %th Page
+      %th Community
+      %th Ismain
+      %th
+      %th
+      %th
+
+  %tbody
+    - @community_pages.each do |community_page|
+      %tr
+        %td= community_page.page
+        %td= community_page.community
+        %td= community_page.ismain
+        %td= link_to 'Show', community_page
+        %td= link_to 'Edit', edit_community_page_path(community_page)
+        %td= link_to 'Destroy', community_page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Community page', new_community_page_path

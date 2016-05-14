@@ -28,8 +28,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        s = Subject.find(params[:subject_id])
-        ps = PageSubject.create(page: @page, subject: s)
+        s = Subject.where(id: params[:subject_id]).first
+        ps = PageSubject.create(page: @page, subject: s) if s.present?
         format.html { redirect_to @page, notice: 'Страница успешно создана' }
         format.json { render :show, status: :created, location: @page }
       else

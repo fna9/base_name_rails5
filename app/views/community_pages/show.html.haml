@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Page:
+  = @community_page.page
+%p
+  %b Community:
+  = @community_page.community
+%p
+  %b Ismain:
+  = @community_page.ismain
+
+= link_to 'Edit', edit_community_page_path(@community_page)
+\|
+= link_to 'Back', community_pages_path
