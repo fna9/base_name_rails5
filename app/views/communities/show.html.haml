@@ -1,32 +1,80 @@
 %h1= @community.name 
 
-%ul.nav.nav-tabs
+%form.navbar-search.pull-left
+  %input.search-query{:placeholder => "Search", :type => "text"}/
+<br></br>
+  
+
+%ul.nav.nav-pills
   %li.active
     =link_to("#main", data: {toggle: :tab}) do
       Главная страница
   %li.passive
     =link_to("#all", data: {toggle: :tab}) do
       Все страницы
-  %li.passive
+  %li.dropdown-toggle
+    =link_to("#news", data: {toggle: :tab}) do
+      Новости
+  %li.dropdown-toggle
     =link_to("#people", data: {toggle: :tab}) do
       Участники
 .tab-content
   .tab-pane.active#main
     .panel.panel-primary.notop
       .panel-body
-        -mpage=@community.get_main_page.try(:page)
-        -if mpage.present?
-          %h2= mpage.header
-          %div 
-            =raw(mpage.contents)
+        -mpage=@community.get_main_page(@current_user).try(:page)
+        -if @community.is_editor?(@current_user)
+          -if mpage.present?
+            .pull-right
+              =link_to "Редактировать", edit_page_path(mpage, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+            .clearfix
+            %h2= mpage.header
+            %div
+              =raw(mpage.contents)
+          -else 
+            .pull-right
+              =link_to "Создать", new_page_path(community_id: @community.id, ismain: 0), class: "btn btn-success"
+            .clearfix 
   .tab-pane.passive#all
     .panel.panel-primary.notop
       .panel-body
+        - if @community.is_editor?(@current_user)
+          .pull-right
+            =link_to "Создать", new_page_path(community_id: @community.id, ismain: 1), class: "btn btn-success"
+          .clearfix
         .list-group
-          -@community.community_pages.each do |cp|
-            =link_to(cp.page.header, cp.page, class: 'list-group-item')
+          -@community.get_common_pages(@current_user).each do |cp|
+            .list-group-item
+              =cp.page.header
+              .pull-right
+                =link_to("Просмотр", cp.page, class: 'btn btn-primary')
+                -if @community.is_editor?(@current_user)
+                  =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+                =fa_icon "eye-slash"
+              .clearfix
+  .tab-pane.passive#news
+    .panel.panel-primary.notop
+      .panel-body
+        - if @community.is_editor?(@current_user)
+          .pull-right
+            =link_to "Создать", new_page_path(community_id: @community.id, ismain: 2), class: "btn btn-success"
+          .clearfix
+        .list-group
+          -@community.get_news_pages(@current_user).each do |cp|
+            .list-group-item
+              =cp.page.header
+              .pull-right
+                =link_to("Просмотр", cp.page, class: 'btn btn-primary')
+                -if @community.is_editor?(@current_user)
+                  =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+                =fa_icon "eye-slash"
+              .clearfix
   .tab-pane.passive#people
     .panel.panel-primary.notop
       .panel-body
-        Участники
+        .list-group
+          -@community.community_users.each do |cu|
+            =link_to(cu.user.email, cu.user, class: 'list-group-item')
+        
+
         

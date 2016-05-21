@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160514102834) do
   create_table "community_pages", force: :cascade do |t|
     t.integer  "page_id"
     t.integer  "community_id"
-    t.boolean  "ismain"
+    t.integer  "ismain"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

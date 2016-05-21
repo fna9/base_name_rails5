@@ -1,15 +1,16 @@
-%p#notice= notice
+%p
 
 %p
+%p
   %b User:
-  = @community_user.user
+  = link_to @community_user.user.email
 %p
   %b Community:
-  = @community_user.community
+  = link_to @community_user.community.name
 %p
   %b Typeuser:
   = @community_user.typeuser
 
-= link_to 'Edit', edit_community_user_path(@community_user)
+= link_to 'Редактировать', edit_community_user_path(@community_user)
 \|
-= link_to 'Back', community_users_path
+= link_to 'Назад', community_users_path

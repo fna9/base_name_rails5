@@ -14,6 +14,7 @@
     = f.text_field :community_id
   .field
     = f.label :typeuser
-    = f.number_field :typeuser
+    = f.select :typeuser, [["Модератор", 0], ["Редактор", 1], ["Читатель", 2]]
+    = f.error_messages_for(:typeuser)
   .actions
     = f.submit 'Save'

@@ -1,6 +1,6 @@
 %h1 Listing community_users
 
-%table
+%table.table
   %thead
     %tr
       %th User
@@ -13,8 +13,8 @@
   %tbody
     - @community_users.each do |community_user|
       %tr
-        %td= community_user.user
-        %td= community_user.community
+        %td= community_user.user.email
+        %td= community_user.community.name
         %td= community_user.typeuser
         %td= link_to 'Show', community_user
         %td= link_to 'Edit', edit_community_user_path(community_user)

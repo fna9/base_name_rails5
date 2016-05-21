@@ -3,7 +3,7 @@ class CreateCommunityPages < ActiveRecord::Migration[5.0]
     create_table :community_pages do |t|
       t.references :page, foreign_key: true
       t.references :community, foreign_key: true
-      t.boolean :ismain
+      t.integer :ismain
 
       t.timestamps
     end

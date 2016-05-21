@@ -3,26 +3,34 @@
   .h1=@student.last_name + ' ' + @student.first_name + ' ' + @student.second_name
 
 
-%p
-  -if @student.avatar?
-    =link_to show_photo_student_path(@student, type: :original), target: :_new do
-      = image_tag get_photo_student_path(@student, type: :medium), alt: @student.last_name
-  -else
-    .li.text-danger
-      Изображение не загружено!
+  .row
+    .col-md-8
+ -#     %ul.thumbnails
+ -#   %li.span4
+ -#    %a.thumbnail{:href => "#"}
+ -#     %img{:alt => "", "data-src" => "holder.js/300x200"}/
+ -#   \...
+      -if @student.avatar?
+        =link_to show_photo_student_path(@student, type: :original), target: :_new do
+          = image_tag get_photo_student_path(@student, type: :medium), alt: @student.last_name
+      -else
+        .li.text-danger
+          Изображение не загружено!
+          = link_to 'Загрузить изображение'
 
 
-%p
-  %b Дата рождения:
-  = l(@student.b_date.to_date)
+  .row
+    .col-md-8
+      %b Дата рождения:
+      = l(@student.b_date.to_date)
 
-%p
-  %b Номер паспорта:
-  = @student.passport_id
+    .col-md-8
+      %b Номер паспорта:
+      = @student.passport_id
 
-%p
-  %b Серия паспорта:
-  = @student.passport_series
+    .col-md-8
+      %b Серия паспорта:
+      = @student.passport_series
 
 
 %p

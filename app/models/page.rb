@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
 
-  has_many :community_pages
+  has_many :community_pages, inverse_of: :page
   
 	has_many :page_subjects
 	has_many :subjects, through: :page_subjects
@@ -10,8 +10,10 @@ class Page < ActiveRecord::Base
 	
 
 	
-        validates :visibility, presence: true
+
         validates :header, presence: true
         validates :contents, presence: true
         validates :alias, presence: true
+  
+  accepts_nested_attributes_for :community_pages, allow_destroy: true
 end

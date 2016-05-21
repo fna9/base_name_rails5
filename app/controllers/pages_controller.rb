@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   # GET /pages/new
   def new
     @page = Page.new
+    @page.community_pages.build(community_id: params[:community_id], ismain: params[:ismain])
   end
 
   # GET /pages/1/edit
@@ -30,7 +31,13 @@ class PagesController < ApplicationController
       if @page.save
         s = Subject.where(id: params[:subject_id]).first
         ps = PageSubject.create(page: @page, subject: s) if s.present?
-        format.html { redirect_to @page, notice: 'Страница успешно создана' }
+        format.html { 
+          if (@community = @page.community_pages.first).present?
+            redirect_to @community.community, notice: 'Страница успешно создана' 
+          else
+            redirect_to @page, notice: 'Страница успешно создана' 
+          end
+        }
         format.json { render :show, status: :created, location: @page }
       else
         format.html { render :new }
@@ -45,7 +52,13 @@ class PagesController < ApplicationController
   def update
     respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Страница успешно изменена' }
+        format.html { 
+          if (@community = @page.community_pages.first).present?
+            redirect_to @community.community, notice: 'Страница успешно изменена' 
+          else
+            redirect_to @page, notice: 'Страница успешно изменена' 
+          end
+        }
         format.json { render :show, status: :ok, location: @page }
       else
         format.html { render :edit }
@@ -72,6 +85,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:visibility, :header, :contents, :alias)
+      params.require(:page).permit(:visibility, :header, :contents, :alias, community_pages_attributes: [:page_id, :community_id, :ismain, :id, :_destroy])
     end
 end

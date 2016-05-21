@@ -1,15 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Page:
-  = @community_page.page
+  %b Страница:
+  = link_to @community_page.page.header
 %p
-  %b Community:
-  = @community_page.community
+  %b Сообщество:
+  = link_to @community_page.community.name
 %p
   %b Ismain:
   = @community_page.ismain
 
-= link_to 'Edit', edit_community_page_path(@community_page)
+= link_to 'Редактировать', edit_community_page_path(@community_page)
 \|
-= link_to 'Back', community_pages_path
+= link_to 'Назад', community_pages_path

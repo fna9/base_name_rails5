@@ -30,7 +30,7 @@
   .row
     .col-md-8
       .form-group
-      *
+        *
         =f.label :b_date
         .input-group.date.datepicker
           =f.text_field(:b_date, value: f.object.b_date.present? ? I18n.l(f.object.b_date) : '', class: 'form-control')

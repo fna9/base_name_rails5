@@ -54,9 +54,6 @@ module SideBarHelper
         :name => 'Учебные группы',
         :icon => 'sitemap',
         :children => [
-        {:name => 'Учебная группа по плану',
-         :controller => :groups, :action => :index,
-         :icon => 'file-text-o'},
         {:name => 'Все учебные группы',
          :controller => :groups, :action => :index,
          :icon => 'search',
@@ -67,11 +64,8 @@ module SideBarHelper
         :name => 'Сообщества',
         :icon => 'university',
         :children => [
-        {:name => 'Ваши сообщества',
-         :controller => :groups, :action => :index,
-         :icon => 'file-text-o'},
         {:name => 'Все сообщества',
-         :controller => :groups, :action => :index,
+         :controller => :communities, :action => :index,
          :icon => 'search',
          :class => 'long'}
       ]}
@@ -127,7 +121,7 @@ module SideBarHelper
 
 
       result << {
-        :name => 'Предметы',
+        :name => 'Дисциплины',
         :icon => 'comment',
         :children => [
         {:name => '?',
@@ -199,7 +193,7 @@ module SideBarHelper
        :controller => :groups, :action => :index,
        :icon => 'search',
        :class => 'long'},
-      {:name => 'Ваши дисциплины',
+      {:name => 'Мои дисциплины',
        :controller => :subjects, :action => :index,
        :icon => 'envelope'},
       {:name => 'Все дисциплины',
@@ -227,10 +221,10 @@ module SideBarHelper
         :icon => 'university',
         :children => [
         {:name => 'Ваши сообщества',
-         :controller => :groups, :action => :index,
+         :controller => :communities, :action => :index,
          :icon => 'file-text-o'},
         {:name => 'Все сообщества',
-         :controller => :groups, :action => :index,
+         :controller => :communities, :action => :index,
          :icon => 'search',
          :class => 'long'}
       ]}

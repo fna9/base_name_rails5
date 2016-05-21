@@ -31,6 +31,10 @@
         =f.text_area(:contents, class: 'form-control', style: 'height: 600px')
         =f.error_messages_for(:contents)
 
+  =f.fields_for :community_pages do |fp|
+    = fp.hidden_field :community_id
+    = fp.hidden_field :ismain
+    
 
   .actions
     = f.submit 'Сохранить', class: "btn btn-primary btn-xs"
