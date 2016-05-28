@@ -80,7 +80,7 @@ class StudentsController < ApplicationController
         end
       end
     end
-  
+
     respond_to do |format|
       if @student.errors.size == 0
         format.html { redirect_to @student, notice: 'Информация о студенте успешно изменена.' }

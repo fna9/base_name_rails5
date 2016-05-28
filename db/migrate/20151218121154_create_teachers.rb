@@ -8,6 +8,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :rank, :null => false
       t.string :position, :null => false
       t.date :b_date, :null => false 
+      t.references :user, foreign_key: true, index: true
 
       t.timestamps null: false
     end

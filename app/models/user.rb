@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :community_users
   
   has_many :role_users
+  
+  has_one :teacher
 
   validates :password, length: {minimum: 3}, confirmation: true,
             if: Proc.new { |u| u.new_record? or !u.password.blank? }

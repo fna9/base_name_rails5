@@ -309,9 +309,12 @@ ActiveRecord::Schema.define(version: 20160514102834) do
     t.string   "rank",                   null: false
     t.string   "position",               null: false
     t.date     "b_date",                 null: false
+    t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree
 
   create_table "universities", force: :cascade do |t|
     t.text     "name",       null: false
@@ -391,4 +394,5 @@ ActiveRecord::Schema.define(version: 20160514102834) do
   add_foreign_key "talk_users", "talks"
   add_foreign_key "talk_users", "users", column: "user1_id"
   add_foreign_key "talk_users", "users", column: "user2_id"
+  add_foreign_key "teachers", "users"
 end

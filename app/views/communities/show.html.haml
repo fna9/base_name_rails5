@@ -74,7 +74,34 @@
       .panel-body
         .list-group
           -@community.community_users.each do |cu|
-            =link_to(cu.user.email, cu.user, class: 'list-group-item')
+            =link_to(cu.user, class: 'list-group-item') do
+              -if cu.user.student.present?
+                .pull-left
+                  =image_tag(get_photo_student_path(cu.user.student, type: :thumb))
+                %div{style: 'display: inline-block; padding-left: 10px;'}
+                  =cu.user.student.last_name 
+                  =cu.user.student.first_name
+                  =cu.user.student.second_name
+                  %br
+                  =cu.user.email
+              -if cu.user.teacher.present?  and cu.user.student.blank?
+                =cu.user.teacher.last_name 
+                =cu.user.teacher.first_name
+                =cu.user.teacher.second_name
+              -if cu.user.student.present?
+                .pull-right 
+                  .label.label-primary{style: 'min-width: 200px; display: inline-block;'} 
+                    Студент
+                  -if cu.user.teacher.present?
+                    %br
+                    .label.label-success{style: 'min-width: 200px; display: inline-block;'} 
+                      Преподаватель
+                .clearfix
+              -elsif cu.user.teacher.present?
+                .pull-right 
+                  .label.label-success{style: 'min-width: 200px; display: inline-block;'} 
+                    Преподаватель
+                .clearfix
         
 
         
