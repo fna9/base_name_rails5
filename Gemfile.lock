@@ -258,7 +258,7 @@ DEPENDENCIES
   redcarpet
   sass-rails
   sdoc
-  sorcery
+  sorcery (~> 0.9.1)
   spring
   therubyracer
   turbolinks
@@ -266,4 +266,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
