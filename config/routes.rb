@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   resources :group_plans
   resources :talks
   resources :afiles
-  resources :pages
+  resources :pages do
+    collection do
+      get :search
+    end
+  end
   resources :ratings
   resources :subjects
   resources :marks

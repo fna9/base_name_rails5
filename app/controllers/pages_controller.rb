@@ -7,6 +7,11 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
+  def search
+    @pages = Page.where('contents ilike ?', "%#{params['contents']}%").all
+    render(:index)
+  end
+
   # GET /pages/1
   # GET /pages/1.json
   def show

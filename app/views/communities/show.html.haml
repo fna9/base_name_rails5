@@ -1,9 +1,7 @@
 %h1= @community.name 
 
-%form.navbar-search.pull-left
-  %input.search-query{:placeholder => "Search", :type => "text"}/
-<br></br>
-  
+= form_tag(search_pages_path(), method: :get, class: 'navbar-search pull-left', style: 'padding-bottom: 10px') do
+  = text_field_tag(:contents, '', :placeholder => "Search")  
 
 %ul.nav.nav-tabs.nav-justified{style: "min-width: 600px; display: inline-block;"}
   %li.active
