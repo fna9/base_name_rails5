@@ -14,7 +14,7 @@ class Community < ApplicationRecord
     if self.is_editor?(user)
       self.community_pages.select{|s| s.ismain == 1}
     else
-      self.community_pages.select{|s| s.ismain == 1 and s.visibility == true} 
+      self.community_pages.find{|s| s.ismain == 1 and s.visibility == true} 
     end
   end
   
@@ -22,7 +22,7 @@ class Community < ApplicationRecord
     if self.is_editor?(user)
       self.community_pages.select{|s| s.ismain == 2}
     else
-      self.community_pages.select{|s| s.ismain == 2 and s.visibility == true} 
+      self.community_pages.find{|s| s.ismain == 2 and s.visibility == true} 
     end
   end
   
