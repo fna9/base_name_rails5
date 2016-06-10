@@ -1,0 +1,53 @@
+<h3>Лекции по основам Ruby on Rails</h3>
+<div class = "row">
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="Основы Ruby on Rails.Введение (часть 1)">
+Лекция 1: Введение в Ruby on Rails</a></div>
+
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="Основы Ruby on Rails.Введение (часть 1)">
+Лекция 2: Создание нового приложения</a></div>
+
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="ActiveRecord">
+Лекция 3: Основы ActiveRecord</a></div>
+
+</div>
+	
+<div class = "row">
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="Основы Ruby on Rails.Введение (часть 1)">
+Лекция 4: Валидации</a></div>
+
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="Основы Ruby on Rails.Введение (часть 1)">
+Лекция 5: Интерфейс запросов ActiveRecord</a></div>
+
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/1/get_photo?type=thumb" > <br>
+																																														   
+<a href="" title="Основы Ruby on Rails.Введение (часть 1)">
+Лекция 6: Таблицы маршрутизации и REST-соглашения</a></div>
+
+</div>
+																																														  
+<h3>Видеоуроки</h3>
+<div class = "row">
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/3/get_photo?type=thumb" > <br>
+																																														   
+<a href="" ">
+Видеоурок 1: Инсталяция rails приложения с нуля </a></div>
+
+<div class = "col-md-4" style = "text-align: center;"><img src = "http://localhost:3000/students/3/get_photo?type=thumb" > <br>
+																																														   
+<a href="" ">
+Видеоурок 2: Добавление элементов ajax взаимодействия </a></div>
+
+
+</div>
+
+
