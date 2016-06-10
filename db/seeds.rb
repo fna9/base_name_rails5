@@ -8,19 +8,19 @@
 
 <<<<<<< HEAD
 users = [['Гаврелюк', 'Артемий', 'Андреевич', 'gaa120@mail.msiu.ru'], 
-['Фомин', 'Валерий', 'Алексеевич', 	'fva12@mail.msiu.ru'],
-['Фомина', 'Наталья', 'Александровна', 	'fna9@mail.msiu.ru'],
-['Хараборчев', 'Илья', 'Сергеевич', 	'xis4@mail.msiu.ru'],
-['Салкин', 'Никита', 'Юрьевич', 	'snq13@mail.msiu.ru'],
-['Опекунов', 'Сергей', 'Дмитриевич', 	'osd2@mail.msiu.ru'],
-['Стрельская', 'Дарья', 'Александровна', 	'sda102@mail.msiu.ru'],
-['Умурзакова', 'Алина', 'Станиславовна', 	'uak2@mail.msiu.ru'],
-['Мишин', 'Андрей', 'Дмитриевич', 	'mad19@mail.msiu.ru'],
-['Сикачев', 'Евгений', 'Александрович', 	'sea83@mail.msiu.ru'],
-['Седых', 'Дмитрий', 'Владимирович', 	'sdv39@mail.msiu.ru'],
-['Никандрова', 'Ксения', 'Сергеевна', 	'nks8@mail.msiu.ru'], 
-['Татаринов', 'Сергей', 'Александрович', 	'tsa27@mail.msiu.ru'], 
-['Хачковский', 'Алексей', 'Дмитриевич', 	'xad2@mail.msiu.ru']] 
+['Фомин', 'Валерий', 'Алексеевич', 'fva12@mail.msiu.ru'],
+['Фомина', 'Наталья', 'Александровна', 'fna9@mail.msiu.ru'],
+['Хараборчев', 'Илья', 'Сергеевич', 'xis4@mail.msiu.ru'],
+['Салкин', 'Никита', 'Юрьевич', 'snq13@mail.msiu.ru'],
+['Опекунов', 'Сергей', 'Дмитриевич', 'osd2@mail.msiu.ru'],
+['Стрельская', 'Дарья', 'Александровна', 'sda102@mail.msiu.ru'],
+['Умурзакова', 'Алина', 'Станиславовна', 'uak2@mail.msiu.ru'],
+['Мишин', 'Андрей', 'Дмитриевич', 'mad19@mail.msiu.ru'],
+['Сикачев', 'Евгений', 'Александрович', 'sea83@mail.msiu.ru'],
+['Седых', 'Дмитрий', 'Владимирович', 'sdv39@mail.msiu.ru'],
+['Никандрова', 'Ксения', 'Сергеевна', 'nks8@mail.msiu.ru'], 
+['Татаринов', 'Сергей', 'Александрович', 'tsa27@mail.msiu.ru'], 
+['Хачковский', 'Алексей', 'Дмитриевич', 'xad2@mail.msiu.ru']] 
 
 users_obj = []
 users.each do |u|
@@ -47,9 +47,9 @@ u2 = User.find_by_email("radigin@yandex.ru")
 if u2.blank?
   u2 = User.create(email: "radigin@yandex.ru", password: "321", password_confirmation: "321")
 =======
-u2 = User.find_by_email("bolonka94@mail.ru")
+u2 = User.find_by_email("radigin@yandex.ru")
 if u2.blank?
-  u2 = User.create(email: "bolonka94@mail.ru", password: "321", password_confirmation: "321")
+  u2 = User.create(email: "radigin@yandex.ru", password: "321", password_confirmation: "321")
 >>>>>>> ccc135a1ce16c208a84b581a04c6f1afd0263dbf
   u2.activation_state = 'active'
   u2.save
@@ -80,7 +80,7 @@ t3 = Teacher.create(last_name: 'Радыгин', first_name: 'Виктор', sec
 t4 = Teacher.create(last_name: 'Петров', first_name: 'Денис', second_name: 'Сергеевич', b_date: Date.new(1972, 07, 29), degree: '-', rank: '-', position: 'Преподаватель')
 t5 = Teacher.create(last_name: 'Александрова', first_name: 'Нина', second_name: 'Григорьевна', b_date: Date.new(1989, 10, 9), degree: '-', rank: '-', position: 'Ассистент')
 <<<<<<< HEAD
-t6 = Teacher.create(last_name: 'Фомина', first_name: 'Наталья', second_name: 'Александровна', b_date: Date.new(1994, 10, 9), degree: '-', rank: '-', position: 'Ассистент', user: u2)
+t6 = Teacher.create(last_name: 'Фомина', first_name: 'Наталья', second_name: 'Александровна', b_date: Date.new(1994, 10, 9), degree: '-', rank: '-', position: 'Ассистент', user: u1)
 
 #puts t1.errors.inspect
 studs_obj = []
