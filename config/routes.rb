@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   resources :marks
   resources :students
   resources :groups
-  resources :teachers
+  resources :teachers do
+    member do
+      get :get_photo
+    end
+  end
   resources :students do
     member do
       get :get_photo

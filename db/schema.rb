@@ -291,16 +291,20 @@ ActiveRecord::Schema.define(version: 20160514102834) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string   "last_name",   limit: 64, null: false
-    t.string   "first_name",  limit: 64, null: false
-    t.string   "second_name", limit: 64
-    t.string   "degree",                 null: false
-    t.string   "rank",                   null: false
-    t.string   "position",               null: false
-    t.date     "b_date",                 null: false
+    t.string   "last_name",           limit: 64, null: false
+    t.string   "first_name",          limit: 64, null: false
+    t.string   "second_name",         limit: 64
+    t.string   "degree",                         null: false
+    t.string   "rank",                           null: false
+    t.string   "position",                       null: false
+    t.date     "b_date",                         null: false
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree

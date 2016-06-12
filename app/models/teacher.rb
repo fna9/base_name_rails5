@@ -3,7 +3,9 @@ class Teacher < ActiveRecord::Base
 
 	has_many :subject_teachers
 	has_many :subjects, through: :subject_teachers
-	
+	has_attached_file :avatar, styles: { :medium => "300x300>", :thumb => "100x100>" },
+           :path => ":rails_root/system/:class/:attachment/:id_partition/:style/:filename"
+           	
 	belongs_to :user
 	
 	validates :last_name, presence: true, length: {maximum: 64}
@@ -16,7 +18,12 @@ class Teacher < ActiveRecord::Base
 	
 	validate :check_b_date
 
-	def age(d=nil)
+        validates :avatar,
+            attachment_content_type: { content_type: /\Aimage\/.*\Z/ },
+            attachment_size: { less_than: 1.megabytes },
+            attachment_file_name: {:matches => [/png\Z/, /jpe?g\Z/]}
+            
+  def age(d=nil)
 		d||=Date.today
 		return unless b_date
 		res=d.year-b_date.year

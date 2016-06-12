@@ -102,7 +102,7 @@ module SideBarHelper
         :name => 'Сообщения',
         :icon => 'comment',
         :children => [
-        {:name => 'Не прочитанные',
+        {:name => 'Не прочитанные <span class = "badge" style = "text-indent: 0px; background-color: brown;">4</span>',
          :controller => :messages, :action => :index,
          :icon => 'envelope'},
         {:name => 'Все разговоры',
@@ -169,7 +169,7 @@ module SideBarHelper
         :name => 'Сообщения',
         :icon => 'comment',
         :children => [
-        {:name => 'Не прочитанные',
+        {:name => 'Не прочитанные <span class = "badge" style = "text-indent: 0px; background-color: brown;">4</span>',
          :controller => :messages, :action => :index,
          :icon => 'envelope'},
         {:name => 'Все разговоры',
@@ -249,7 +249,7 @@ module SideBarHelper
         :name => 'Сообщения',
         :icon => 'comment',
         :children => [
-        {:name => 'Не прочитанные',
+        {:name => 'Не прочитанные <span class = "badge" style = "text-indent: 0px; background-color: brown;">4</span>',
          :controller => :messages, :action => :index,
          :icon => 'envelope'},
         {:name => 'Все разговоры',

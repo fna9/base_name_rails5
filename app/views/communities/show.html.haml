@@ -1,105 +1,133 @@
-%h1= @community.name 
+.row
+  .col-md-8
+    %h1= @community.name 
+  .col-md-4
+    = form_tag(search_pages_path(), method: :get, class: 'navbar-search', style: 'padding-bottom: 10px') do
+      .form-group{style: "padding-top: 10px;"}
+        .input-group{style: "text-align: right;"}
+          = text_field_tag(:contents, '', :placeholder => "Искать")
+          %span.input-group-addon
+            = fa_icon :search  
 
-= form_tag(search_pages_path(), method: :get, class: 'navbar-search pull-left', style: 'padding-bottom: 10px') do
-  = text_field_tag(:contents, '', :placeholder => "Search")  
-
-%ul.nav.nav-tabs.nav-justified{style: "min-width: 600px; display: inline-block;"}
-  %li.active
-    =link_to("#main", data: {toggle: :tab}) do
-      Главная страница
-  %li.passive
-    =link_to("#all", data: {toggle: :tab}) do
-      Все страницы
-  %li.dropdown-toggle
-    =link_to("#news", data: {toggle: :tab}) do
-      Новости
-  %li.dropdown-toggle
-    =link_to("#people", data: {toggle: :tab}) do
-      Участники
-.tab-content
-  .tab-pane.active#main
-    .panel.panel-primary.notop
-      .panel-body
-        -mpage=@community.get_main_page(@current_user).try(:page)
-        -if @community.is_editor?(@current_user)
-          -if mpage.present?
+#tabs1
+  %ul.nav.nav-tabs.notop
+    %li.active
+      =link_to("#main", data: {toggle: :tab}) do
+        Главная страница
+    %li
+      =link_to("#all", data: {toggle: :tab}) do
+        Все страницы
+    %li
+      =link_to("#news", data: {toggle: :tab}) do
+        Новости
+    %li
+      =link_to("#people", data: {toggle: :tab}) do
+        Участники
+  .tab-content
+    .tab-pane.active#main
+      .panel.panel-primary.notop
+        .panel-body
+          -mpage=@community.get_main_page(@current_user).try(:page)
+          -if @community.is_editor?(@current_user)
+            -if mpage.present?
+              .pull-right
+                =link_to "Редактировать", edit_page_path(mpage, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+              %div
+                =raw(mpage.contents)
+              .clearfix
+            -else 
+              .pull-right
+                =link_to "Создать", new_page_path(community_id: @community.id, ismain: 0), class: "btn btn-success"
+              .clearfix 
+    .tab-pane.passive#all
+      .panel.panel-primary.notop
+        .panel-body
+          - if @community.is_editor?(@current_user)
             .pull-right
-              =link_to "Редактировать", edit_page_path(mpage, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+              =link_to "Создать", new_page_path(community_id: @community.id, ismain: 1), class: "btn btn-success", style: "margin-bottom: 10px;"
             .clearfix
-            %h2= mpage.header
-            %div
-              =raw(mpage.contents)
-          -else 
+          .list-group
+            -@community.get_common_pages(@current_user).each do |cp|
+              .list-group-item
+                =cp.page.header
+                .pull-right
+                  =link_to("Просмотр", cp.page, class: 'btn btn-primary')
+                  -if @community.is_editor?(@current_user)
+                    =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+                    - if cp.page.visibility != true
+                      .btn.btn-danger                        
+                        =fa_icon "eye-slash"
+                    -else
+                      .btn.btn-success                        
+                        =fa_icon "eye", class: 'btn-btn-primary'
+                .clearfix
+    .tab-pane.passive#news
+      .panel.panel-primary.notop
+        .panel-body
+          - if @community.is_editor?(@current_user)
             .pull-right
-              =link_to "Создать", new_page_path(community_id: @community.id, ismain: 0), class: "btn btn-success"
-            .clearfix 
-  .tab-pane.passive#all
-    .panel.panel-primary.notop
-      .panel-body
-        - if @community.is_editor?(@current_user)
-          .pull-right
-            =link_to "Создать", new_page_path(community_id: @community.id, ismain: 1), class: "btn btn-success"
-          .clearfix
-        .list-group
-          -@community.get_common_pages(@current_user).each do |cp|
-            .list-group-item
-              =cp.page.header
-              .pull-right
-                =link_to("Просмотр", cp.page, class: 'btn btn-primary')
-                -if @community.is_editor?(@current_user)
-                  =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
-                =fa_icon "eye-slash"
-              .clearfix
-  .tab-pane.passive#news
-    .panel.panel-primary.notop
-      .panel-body
-        - if @community.is_editor?(@current_user)
-          .pull-right
-            =link_to "Создать", new_page_path(community_id: @community.id, ismain: 2), class: "btn btn-success"
-          .clearfix
-        .list-group
-          -@community.get_news_pages(@current_user).each do |cp|
-            .list-group-item
-              =cp.page.header
-              .pull-right
-                =link_to("Просмотр", cp.page, class: 'btn btn-primary')
-                -if @community.is_editor?(@current_user)
-                  =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
-                =fa_icon "eye-slash"
-              .clearfix
-  .tab-pane.passive#people
-    .panel.panel-primary.notop
-      .panel-body
-        .list-group
-          -@community.community_users.each do |cu|
-            =link_to(cu.user, class: 'list-group-item') do
-              -if cu.user.student.present?
-                .pull-left
-                  =image_tag(get_photo_student_path(cu.user.student, type: :thumb))
-                %div{style: 'display: inline-block; padding-left: 10px;'}
-                  =cu.user.student.last_name 
-                  =cu.user.student.first_name
-                  =cu.user.student.second_name
-                  %br
-                  =cu.user.email
-              -if cu.user.teacher.present?  and cu.user.student.blank?
-                =cu.user.teacher.last_name 
-                =cu.user.teacher.first_name
-                =cu.user.teacher.second_name
-              -if cu.user.student.present?
-                .pull-right 
-                  .label.label-primary{style: 'min-width: 200px; display: inline-block;'} 
-                    Студент
-                  -if cu.user.teacher.present?
+              =link_to "Создать", new_page_path(community_id: @community.id, ismain: 2), class: "btn btn-success"
+            .clearfix
+          .list-group
+            -@community.get_news_pages(@current_user).each do |cp|
+              .list-group-item
+                =cp.page.header
+                .pull-right
+                  =link_to("Просмотр", cp.page, class: 'btn btn-primary')
+                  -if @community.is_editor?(@current_user)
+                    =link_to "Редактировать", edit_page_path(cp, community_id: @community.id, ismain: 0), class: "btn btn-warning"
+                  =fa_icon "eye-slash"
+                .clearfix
+    .tab-pane.passive#people
+      .panel.panel-primary.notop
+        .panel-body
+          .list-group
+            -@community.community_users.sort.each do |cu|
+              =link_to(cu.user, class: 'list-group-item') do
+                -if cu.user.student.present?
+                  .col-md-1{style: "text-align: center;"}
+                    -if cu.user.student.avatar.present?
+                      =image_tag(get_photo_student_path(cu.user.student, type: :thumb), width: "50%")
+                    - else
+                      =fa_icon 'user 3x'  
+                  %div{style: 'display: inline-block; padding-left: 10px;'}
+                    %b
+                      =cu.user.student.last_name 
+                      =cu.user.student.first_name
+                      =cu.user.student.second_name
                     %br
+                    =cu.user.email
+                -if cu.user.teacher.present?  and cu.user.student.blank?
+                  .col-md-1{style: "text-align: center;"}
+                    -if cu.user.teacher.avatar.present?
+                      =image_tag(get_photo_teacher_path(cu.user.teacher, type: :thumb), width: "50%")
+                    - else
+                      =fa_icon 'user 3x'  
+                  %div{style: 'display: inline-block; padding-left: 10px;'}
+                    %b
+                      =cu.user.teacher.last_name 
+                      =cu.user.teacher.first_name
+                      =cu.user.teacher.second_name
+                    %br
+                    =cu.user.email
+                .pull-right 
+                  -if cu.user.student.present?
+                    .label.label-primary{style: 'min-width: 200px; display: inline-block;'} 
+                      Студент
+                    -if cu.user.teacher.present?
+                      %br
+                      .label.label-success{style: 'min-width: 200px; display: inline-block;'} 
+                        Преподаватель
+                  -elsif cu.user.teacher.present?
                     .label.label-success{style: 'min-width: 200px; display: inline-block;'} 
                       Преподаватель
+                  %br
+                  -if cu.typeuser == 0
+                    .label.label-danger{style: 'min-width: 200px; display: inline-block;'} 
+                      Модератор
+                  -elsif cu.typeuser == 1
+                    .label.label-warning{style: 'min-width: 200px; display: inline-block;'} 
+                      Редактор
                 .clearfix
-              -elsif cu.user.teacher.present?
-                .pull-right 
-                  .label.label-success{style: 'min-width: 200px; display: inline-block;'} 
-                    Преподаватель
-                .clearfix
-        
 
         

@@ -9,6 +9,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :position, :null => false
       t.date :b_date, :null => false 
       t.references :user, foreign_key: true, index: true
+      t.attachment :avatar
 
       t.timestamps null: false
     end

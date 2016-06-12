@@ -1,10 +1,17 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy, :get_photo]
 
   # GET /teachers
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+  end
+
+  def get_photo
+    type = :medium
+    type = params['type'] if params.has_key?(:type)
+    photo = @teacher.avatar.path(type)
+    send_file photo
   end
 
   # GET /teachers/1
