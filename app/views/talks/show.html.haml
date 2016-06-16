@@ -1,42 +1,85 @@
-%h1
-  = @talk.title
-  - messages = [['Фомина Наталья', 'Привет, не поскажешь как решать задачу 1?', 'f.jpg'], ['Стрельская Дарья', 'Привет! Посмотри в Кормане на странице 112.', 's.jpg'], ['Фомина Наталья', 'Спасибо!', 'f.jpg']]
-  - users = [['Фомина Наталья', true, 'f.jpg'], ['Стрельская Дарья', false, 's.jpg']]
+- messages = [['Фомина Наталья', 'Привет, не пришлешь пример оформления титульной страницы вкр?', 'f.jpg', '13.06.2016 12:20'], ['Стрельская Дарья', 'Привет! Да, есть, отправляю', 's.jpg', '13.06.2016 13:15', 'Титульная страница ВКР.pdf', 'Документ 1,8 МБ'], ['Фомина Наталья', 'Спасибо!', 'f.jpg', '13.06.2016 13:28']]
+- users = [['Фомина Наталья', true, 'f.jpg'], ['Стрельская Дарья', false, 's.jpg']]
 .row
   .col-md-8
-    - messages.each_with_index do |msg, i|
-      - if i % 2 == 1
-        .msg-right
-          .msg
-            .green
-              .msg-title
-                = msg[0]
-              .msg-body
-                = msg[1]    
-            = image_tag(msg[2], width: '100')
-        .clearfix
-      - if i % 2 == 0
-        .msg-left
-          .msg
-            = image_tag(msg[2], width: '100')
-            .yellow
-              .msg-title
-                = msg[0]
-              .msg-body
-                = msg[1]    
-        .clearfix
+    %h1
+      = @talk.title
+    %div{style: "background: #fff9ef; border-style: solid; border-width: 1px; border-color: #ee8262;"}
+      - messages.each_with_index do |msg, i|
+        - if i % 2 == 1
+          .msg-right
+            .msg
+              .pull-right   
+                = image_tag(msg[2], width: '100')
+              .green.pull-right
+                .msg-title
+                  = msg[0]
+                  %br
+                  %i{style: "color: grey; font-size: 80%;"}= msg[3]
+
+                .msg-body
+                  = raw(msg[1]) 
+                  %br
+                  %br
+                  - if msg[4].present?
+                    %i{style: "color: blue; font-size: 80%;"}
+                      =fa_icon "paperclip"
+                      = msg[4]
+                    %i{style: "color: grey; font-size: 80%;"}= msg[5]
+          .clearfix
+        - if i % 2 == 0
+          .msg-left
+            .msg
+              .pull-left
+                = image_tag(msg[2], width: '100')
+              .yellow.pull-left
+                .msg-title
+                  = msg[0]
+                  %br
+                  %i{style: "color: grey; font-size: 80%;"}= msg[3]
+                .msg-body
+                  = msg[1]    
+          .clearfix
+      %div
+        &nbsp;    
   .col-md-4
-    - users.each do |u|
-      .msg-user
-        .name
-          = u[0]
-          %br
-          %div{class: "msg-color-#{u[1]}"}
-            &nbsp;
-        = image_tag(u[2], width: '50')
-        .clearfix
+    %h1{style: "margin-left: 20px;"}
+      Участники (2)
+    = form_tag do 
+      .form-group{style: "margin-left: 20px; text-align: center;"}
+        %div{style: "background: #fff9ef; border-style: solid; border-width: 1px; border-color: #ee8262; text-align: center;"}
+          = button_tag class: "btn form-control" do
+            =fa_icon "plus"
+            Добавить участников
+          - users.each do |u|
+            .msg-user{style: "margin-left: 25px;"}
+              .name
+                = u[0]
+                %br
+                %div{class: "msg-color-#{u[1]}"}
+                  &nbsp;
+                  
+              = image_tag(u[2], width: '50')
+          = button_tag class: "btn form-control" do
+            =fa_icon "low-vision"
+            Пометить как непрочтенное
+%br        
+= form_tag do      
+  .row
+    .col-md-8
+      .form-group
+        =text_area_tag :qq, '', placeholder: "Текст сообщения", class: 'form-control', style: "background: #fff9ef; border-style: solid; border-width: 1px; border-color: #ee8262; margin-bottom: 10px;"
 
-= link_to talks_path, class: "btn btn-primary" do
-  =fa_icon "reply"
-  Вернуться назад
-
+.row
+  .col-md-8
+    = link_to talks_path, class: "btn btn-primary" do
+      =fa_icon "envelope"
+      Отправить
+    = link_to talks_path, class: "btn btn-primary" do
+      =fa_icon "eye"
+      Предпросмотр
+    .pull-right
+      = link_to talks_path, class: "btn btn-primary" do
+        =fa_icon "paperclip"
+        Прикрепить файл
+    .clearfix
